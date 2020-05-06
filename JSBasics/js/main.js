@@ -267,13 +267,91 @@
 
 
 //  タイマー機能
-let i = 0;
+// let i = 0;
 
-function showTime() {
-  console.log(new Date());
-  i++;
-  if (i > 9) {
-    clearInterval(intervalid);
+// function showTime() {
+//   console.log(new Date());
+//   i++;
+//   if (i > 9) {
+//     clearInterval(intervalid);
+//   }
+// }
+// const intervalid = setInterval(showTime, 1000);
+
+
+
+// 複数のオブジェクトのある場合
+// const posts = [
+//   {
+//     text: 'JavaScriptの勉強中',
+//     likeCount: 0,
+//   },
+//   {
+//     text: 'プログラミング楽しい',
+//     likeCount: 0,
+//   },
+// ];
+
+// function show(post) {
+//   console.log(`${post.text} - ${post.likeCount}いいね`);
+// }
+
+// show(posts[0]);
+
+
+// メソッドを使う
+// オブジェクトではプロパティーの値として関数をもたせる事もできます
+// const posts = [
+//   {
+//     text: 'JavaScriptの勉強中',
+//     likeCount: 0,
+//     show() {
+//       console.log(`${this.text} - ${this.likeCount}いいね`);
+//     },
+//   },
+//   {
+//     text: 'プログラミング楽しい',
+//     likeCount: 0,
+//     show() {
+//       console.log(`${this.text} - ${this.likeCount}いいね`);
+//     },
+//   },
+// ];
+
+// posts[0].show();
+// posts[1].show()
+
+
+// クラス・・・オブジェクトをテンプレート化したもの
+//機能の拡張をするときはプロパティーを直接操作せず、メソッド(クラス内(オブジェクト内)の関数)を介して操作する（カプセル化)
+class Post {
+  constructor(text) {
+    this.text = text;
+    this.likeCount = 0;
+  }
+
+  show() {
+    console.log(`${this.text} - ${this.likeCount}いいね`);
+  }
+
+  like() {
+    this.likeCount++;
+    this.show();
+  }
+  // 静的メソッド   個々のオブジェクトであるインスタンスとは直接関係ないけれども、投稿に関する機能を作りたい、といった場合に便利です。
+    // thisは使えない
+  static showInfo() {
+    console.log(`Post class version 1.0`)
   }
 }
-const intervalid = setInterval(showTime, 1000);
+
+const posts = [
+  new Post('JavaScriptの勉強中'),
+  new Post('プログラミング楽しい'),
+];
+
+posts[0].show();
+posts[1].show();
+posts[1].like();
+
+Post.showInfo();
