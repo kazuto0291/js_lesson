@@ -142,6 +142,8 @@
 
 
 //スプレッド構文 ... 複数の値を持つもの
+//配列やオブジェクトを展開するときに使う
+// レスト構文    ....others
 // const otherScores = [10, 20];
 // const scores = [80, 90, 70, ...otherScores];
 // console.log(scores);
@@ -188,4 +190,90 @@
 // const evenNumbers = numbers.filter(number => number % 2 === 0);
 // console.log(evenNumbers);
 
+//オブジェクトのプロパティーにアクセスする方法
+//二種類ある
+//オブジェクト名.キーの名前
+//オブジェクト名のあとに[]の中にキーを文字列の形でわたす
+// const point = {
+//   x: 100,
+//   y: 180,
+// };
+// point.x = 500;
+// point["y"] = 300;
 
+// console.log(point.x);
+// console.log(point["y"]);
+
+// オブジェクトをスプレッド構文で展開する
+// const otherProps = {
+//   r: 4,
+//   color: 'red',
+// };
+
+// const point = {
+//   x: 100,
+//   y: 180,
+//   ...otherProps,
+// };
+// console.log(point);
+//オブジェクトに対して分割代入とレスト構文も使える
+// const {x, r, ...others} = point;
+// console.log(x);
+// console.log(r);
+// console.log(others);
+
+// オブジェクトのプロパティーを配列にして列挙するのに
+// keys()とforEachを使う
+// Object.keys(point) とすると point の全てのキーを配列で取得できる
+// const point = {
+//     x: 100,
+//     y: 180,
+//   };
+//   const keys =Object.keys(point);
+//   keys.forEach(key => {
+//     console.log(`Key: ${key} Value: ${point[key]}`)
+//   })
+
+//   //配列の中のオブジェクトの値の取得方法
+//   const points = [
+//     {x: 30, y:20},
+//     {x: 20, y:220},
+//     {x: 190, y:89},
+//   ]
+//   console.log(points[0].y);
+//   console.log(points[2]['x']);
+//   console.log(points);
+//   console.log(points[1].x)
+
+// 配列の要素を文字列として結合  join(結合するときの文字列)
+// const d =[2019, 11, 14];
+// console.log(d.join("/"));
+
+// // 文字列を区切り文字のところで分割して配列にする split()
+// const t = '17:08:21'
+// console.log(t.split(":"));
+// const [hour, minute, second] = t.split(":"); //分割代入で別々の定数に代入する
+// console.log(hour);
+// console.log(minute);
+// console.log(second);
+
+// ユーザーに確認を求める confirm()
+// const answer = confirm('削除しますか？')
+// if (answer) {
+//   console.log('削除しました');
+// } else {
+//   console.log('キャンセルしました');
+// }
+
+
+//  タイマー機能
+let i = 0;
+
+function showTime() {
+  console.log(new Date());
+  i++;
+  if (i > 9) {
+    clearInterval(intervalid);
+  }
+}
+const intervalid = setInterval(showTime, 1000);
