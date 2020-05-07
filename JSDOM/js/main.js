@@ -30,7 +30,6 @@
 //   // document.getElementById('target').classList.toggle('my-color');
 //   // document.getElementById('target').textContent = 'Dotinstall';
 //   document.getElementById('target').textContent = document.getElementById('target').dataset.translation;
-  
 // });
 
 // DOM要素の追加
@@ -83,9 +82,46 @@
 
 
 // セレクトボックスの操作
+// document.querySelector('button').addEventListener('click', () => {
+//   const li = document.createElement('li');      //まずは li 要素を作る
+//   const color = document.querySelector('select'); //select 要素で選択された値を使いたいので、要素を取得
+//   //li の textContent に値をセット
+//   li.textContent = `${color.value} - ${color.selectedIndex}`;//select の場合 value プロパティで選択された値、そして selectedIndex プロパティで選択された値が何番目かを取得できるので、両方表示してみましょう
+//   //querySelector で ul を取得してあげて子要素の末尾に li を追加したいので appendChild() を使ってあげます
+//   document.querySelector('ol').appendChild(li);
+// });
+
+
+//ラジオボタンの操作
+// document.querySelector('button').addEventListener('click', () => {
+//   const colors = document.querySelectorAll('input');//querySelectorAll() を使って全ての input 要素を取得してあげる必要があります。
+
+//   let selectedColor;//選択された値を保持しておきたいので変数も宣言しておきます
+
+//   colors.forEach(color => {  //ひとつひとつの要素を color として次の処理をしなさい
+//     if (color.checked === true) { //チェックされているかどうかは、 checked プロパティで調べられる
+//       selectedColor = color.value;  //要素がチェックされていたら、color の value プロパティの値を selectedColor に代入
+//     }
+//   });
+
+//   const li = document.createElement('li');  //createElement() で li 要素を作る
+//   li.textContent = selectedColor;//li.textContent には選択された値を入れたいので、 selectedColor を代入
+//   document.querySelector('ol').appendChild(li); // ol に対して li を appendChild() する
+// });
+
+
+// チェックボックスの操作
 document.querySelector('button').addEventListener('click', () => {
+  const colors = document.querySelectorAll('input'); //複数の要素になるので querySelectorAll() を使う
+  const selectedColors = [];//チェックボックスの場合、複数選択可なので、選択された値を配列で保持
+
+  colors.forEach(color => {
+    if (color.checked ===true) {
+      selectedColors.push(color.value);
+    }
+  });
+
   const li = document.createElement('li');
-  const color = document.querySelector('select');
-  li.textContent = `${color.value} - ${color.selectedIndex}`;
+  li.textContent = selectedColors;
   document.querySelector('ol').appendChild(li);
 });
