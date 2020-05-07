@@ -111,17 +111,46 @@
 
 
 // チェックボックスの操作
-document.querySelector('button').addEventListener('click', () => {
-  const colors = document.querySelectorAll('input'); //複数の要素になるので querySelectorAll() を使う
-  const selectedColors = [];//チェックボックスの場合、複数選択可なので、選択された値を配列で保持
+// document.querySelector('button').addEventListener('click', () => {
+//   const colors = document.querySelectorAll('input'); //複数の要素になるので querySelectorAll() を使う
+//   const selectedColors = [];//チェックボックスの場合、複数選択可なので、選択された値を配列で保持
 
-  colors.forEach(color => {
-    if (color.checked ===true) {
-      selectedColors.push(color.value);
-    }
-  });
+//   colors.forEach(color => {  //ひとつひとつの要素を color として次の処理をしなさい、と書く
+//     if (color.checked ===true) {  //checked プロパティで調べられる
+//       selectedColors.push(color.value);//color の checked プロパティが true だったら selectedColors に追加したいので push() メソッドを使う
+//     }
+//   });
 
-  const li = document.createElement('li');
-  li.textContent = selectedColors;
-  document.querySelector('ol').appendChild(li);
+//   const li = document.createElement('li');//li 要素を作って DOM ツリーに追加
+//   li.textContent = selectedColors;//豆知識  配列は文字列で表現されるときに , 区切りになる
+//   document.querySelector('ol').appendChild(li);//ul に対して li を appendChild()する
+// });
+
+
+//フォームで使われるイベント
+// const text = document.querySelector('textarea');
+
+// text.addEventListener('focus', () => {
+//   console.log('focus');
+// });
+
+// text.addEventListener('blur', () => {
+//   console.log('blur');
+// });
+
+// text.addEventListener('input' , () => {
+//   console.log('input');
+//   console.log(text.value.length);
+// });
+
+// text.addEventListener('change', () => {
+//   console.log('change')
+// });
+
+
+//フォームの送信イベント
+//formの中のボタンをクリックするとsubmitというイベントが発生する
+document.querySelector('form').addEventListener('submit', e => {
+  e.preventDefault();//既定の動作をキャンセルする  今回はページ遷移をキャンセルするため
+  console.log('submit')
 });
