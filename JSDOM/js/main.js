@@ -69,14 +69,23 @@
 
 
 //input要素の操作
-document.querySelector('button').addEventListener('click', () => { //ボタンをクリックしたときの処理はリストに追加する li 要素を作る
-  const li =document.createElement('li'); //要素を作るには createElement() を使う
-  const text = document.querySelector('input');//input要素に入力された値を使いたいので、まずは要素を取得する
-  //li.textContent に値を設定
-  li.textContent = text.value; //入力された値は value 属性で取得できるので、このように書いてあげれば OK
-  document.querySelector('ol').appendChild(li);//ol に対して、 appendChild() で li を追加
+// document.querySelector('button').addEventListener('click', () => { //ボタンをクリックしたときの処理はリストに追加する li 要素を作る
+//   const li =document.createElement('li'); //要素を作るには createElement() を使う
+//   const text = document.querySelector('input');//input要素に入力された値を使いたいので、まずは要素を取得する
+//   //li.textContent に値を設定
+//   li.textContent = text.value; //入力された値は value 属性で取得できるので、このように書いてあげれば OK
+//   document.querySelector('ol').appendChild(li);//ol に対して、 appendChild() で li を追加
 
-  //入力するたびにこちらの入力欄がクリアされてフォーカスされている状態を作る
-  text.value = '';//text の値を空文字にしてあげて
-  text.focus(); //フォーカスさせるには focus() メソッドを使う
-})
+//   //入力するたびにこちらの入力欄がクリアされてフォーカスされている状態を作る
+//   text.value = '';//text の値を空文字にしてあげて
+//   text.focus(); //フォーカスさせるには focus() メソッドを使う
+// });
+
+
+// セレクトボックスの操作
+document.querySelector('button').addEventListener('click', () => {
+  const li = document.createElement('li');
+  const color = document.querySelector('select');
+  li.textContent = `${color.value} - ${color.selectedIndex}`;
+  document.querySelector('ol').appendChild(li);
+});
