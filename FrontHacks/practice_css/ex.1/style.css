@@ -1,0 +1,29 @@
+body {
+  background: #cccccc;
+  width: 80%;
+  margin: 0  auto;
+}
+
+h2 {
+  background-color: yellow;
+  text-align: center;
+  color: red;
+  border: 5px dashed red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#important {
+  color: red;
+  font-size: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin-bottom: 50px;
+}
