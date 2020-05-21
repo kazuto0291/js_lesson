@@ -1,0 +1,17 @@
+body {
+  background: #cccccc;
+}
+
+img {
+  width: 100%;
+}
+
+.img-title {
+  text-align: center;
+  margin: 10px 0;
+
+}
+
+.img-garally {
+  padding: 30px;
+}
