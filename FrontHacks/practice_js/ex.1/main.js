@@ -1,5 +1,28 @@
-const weather = prompt('今日の天気は？次の3つのうち、いずれかの文字列を入力してください。(晴れ or 曇り or 雨)');
+let num = 0;
 
+while (num < 100){
+  console.log(num)
+  num++;
+}
+
+let question = 'パンはパンでも食べられないパンは？';
+let answer = 'フライパン';
+let input;
+
+while (input !== answer) {
+  input = prompt(question);
+  if (input !== answer) {
+    alert('不正解です！');
+  } else {
+    alert('正解です！');
+  }
+}
+
+
+
+
+
+const weather = prompt('今日の天気は？次の3つのうち、いずれかの文字列を入力してください。(晴れ or 曇り or 雨)');
 
 if (weather === "晴れ") {
   alert('今日は気持ちの良い一日になりそうですね！');
