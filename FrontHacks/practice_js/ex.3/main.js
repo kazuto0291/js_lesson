@@ -31,3 +31,11 @@ kadai_1(13, (message) => {
 ((x, y) => {
   console.log(x + y );
 })(4, 5);
+
+const array = [1, 2, 4];
+
+array.push(999, 45, 56 );
+
+console.log(array);
+array.pop();
+console.log(array);
