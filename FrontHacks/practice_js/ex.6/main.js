@@ -120,3 +120,21 @@ console.log(newValuesOfMap);
  */
 
 // ここでfilter関数を作る
+
+const filter = (array, callback) => {
+  newArray = [];
+  each(array, (value, index) => {
+    if (callback(value, index)) {
+      newArray.push(value);
+    }
+  })
+
+  return newArray;
+};
+
+const returnValuesOfFilter = filter([1, 2, 3, 4, 5, 6, 7, 8], (value, index) => {
+  console.log(`index : ${index}, value : ${value}`);
+  return value >=3;
+
+});
+console.log(returnValuesOfFilter);
