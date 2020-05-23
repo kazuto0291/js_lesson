@@ -71,6 +71,24 @@ console.log(returnedValueOfEach);
 
 // ここでmap関数を実装する
 
+const map = (array, callback) => {
+  const newArray = [];
+  each(array, (value, index) => {
+    const newValue = callback(value, index);
+    newArray.push(newValue);
+  });
+
+  return newArray;
+}
+
+const newValuesOfMap = map([3, 6, 9], (value, index) => {
+  console.log(`index ; ${index} , value : ${value}`)
+  return value * 10;
+}) ;
+
+console.log(newValuesOfMap);
+
+
 
 /**
  * 課題3: 「Array.prototype.filter()」と同等の機能を持つ関数を作る
