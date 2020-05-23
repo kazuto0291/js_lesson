@@ -51,3 +51,18 @@ console.log('numbers : ' ,returnedNumbers);
  *     - 「Array.prototype.sort()」を使う
  *       - https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
  */
+
+const sortNumbers = (_numbers) => {
+  const copiedNumbers = _numbers.slice();
+  copiedNumbers.sort(function(a, b) {
+    return a - b;
+  });
+
+  return copiedNumbers;
+};
+
+const beforeSortNumbers = [1000, 10, 500, 234, 965, 221, 102];
+const afterSortNumbers = sortNumbers(beforeSortNumbers);
+
+console.log(`beforeSortNumbers : ${beforeSortNumbers}`)
+console.log(`afterSortNumbers : ${afterSortNumbers}`)
