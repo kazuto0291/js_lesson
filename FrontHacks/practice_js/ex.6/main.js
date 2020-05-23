@@ -26,20 +26,7 @@
 // ここでeach関数を作る
 
 
-const each = (array, callback) => {
-  for (let i =0; i < array.length; i++) {
-    const currentValue = array[i];
-    const index = i;
-    callback(currentValue, index);
-  }
-}
 
-const inputArrayForEach = [2, 4, 6, 8];
-const returnedValureOfEach = each(inputArrayForEach, (value, index) => {
-  console.log(`${index} : ${value}`);
-});
-
-console.log(returnedValureOfEach);
 
 
 /**
