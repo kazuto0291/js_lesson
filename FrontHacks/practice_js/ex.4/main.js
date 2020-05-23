@@ -1,3 +1,15 @@
+const numbers = [33, 55, 77, 66];
+
+numbers.forEach((name, index) => {
+  console.log(index + " " + name);
+  console.log(`${index} ${name}`);
+})
+
+
+
+
+
+
 const array1 = [1, 2, 3, 4, 5, 6];
 console.log(array1);
 
