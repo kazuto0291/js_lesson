@@ -1,3 +1,17 @@
+const person = {
+  name: 'ツヨ',
+  sayMyName: function() {
+    console.log(`${this.name}です`);
+  }
+};
+person.sayMyName();
+
+
+
+
+
+
+
 // オブジェクトを使ってメソッドを作成する
 
 // オブジェクトの関数を定義
