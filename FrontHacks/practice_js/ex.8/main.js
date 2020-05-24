@@ -9,7 +9,7 @@ const foods = {
 };
 
 console.log(foods.kinds[1]);
-console.log(`==============================`);
+  console.log(`==============================`);
 
 foods.kinds.forEach((kind) => {
   console.log(kind);
