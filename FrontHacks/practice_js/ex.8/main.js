@@ -1,3 +1,18 @@
+const animals = [
+  {name: '猫', age: 10},
+  {name: '犬', age: 3},
+  {name: 'トラ', age: 4},
+  {name: 'うさぎ', age: 2}
+];
+
+animals.forEach((animal) => {
+  console.log(`animal.name : ${animal.name}`);
+  console.log(`animal.age : ${animal.age}`);
+  console.log(`==============================`);
+})
+
+
+
 const cat = {
   name: 'chachacha',
   age: 3,
