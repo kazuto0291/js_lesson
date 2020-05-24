@@ -1,3 +1,25 @@
+const cat = {
+  name: 'chachacha',
+  age: 3,
+  sex: 'オス'
+};
+
+console.log(cat);
+
+cat.owner ='kazu'
+
+console.log(cat);
+
+cat.age += 1;
+console.log(cat);
+cat.age = cat.age + 2;
+console.log(cat);
+
+
+
+delete cat.owner;
+console.log(cat);
+
 const person = {
   name: 'ツヨポン',
   age: 29,
