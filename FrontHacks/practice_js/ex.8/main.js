@@ -1,3 +1,21 @@
+const foods = {
+  type: 'fruits',
+  kinds:[
+    'いちご',
+    'ぶどう',
+    'バナナ',
+    'キウイフルーツ'
+  ]
+};
+
+console.log(foods.kinds[1]);
+console.log(`==============================`);
+
+foods.kinds.forEach((kind) => {
+  console.log(kind);
+})
+
+
 const animals = [
   {name: '猫', age: 10},
   {name: '犬', age: 3},
