@@ -61,3 +61,40 @@ timer2.setSeconds(5);
 
 timer1.start();
 timer2.start();
+
+
+// クラスメソッド
+
+class Car {
+  static color = 'BaseColor';
+  constructor(color, number) {
+    this.color = color;
+    this.number = number;
+  }
+
+  static showCorpName() {
+    console.log('showCorpName : Toyota');
+  }
+
+  shwoColor() {
+    console.log(`showColor : `, this.color);
+  }
+
+  static showClolr2() {
+    console.log('showColor2 : ', this.color);
+  }
+
+  static getCorpName() {
+    return 'Toyota';
+  }
+}
+
+console.log(Car.getCorpName());
+
+const car1 =new Car('red', 1);
+
+Car.showClolr2();
+car1.shwoColor();
+
+Car.showCorpName();
+// car1.showCorpName();
