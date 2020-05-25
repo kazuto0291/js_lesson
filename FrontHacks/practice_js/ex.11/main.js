@@ -1,3 +1,40 @@
+class Timer {
+  constructor() {
+    this.remainingSeconds = 0;
+  }
+
+  setSecondes(seconds) {
+    this.remainingSeconds = seconds;
+  }
+  tick() {
+    this.remainingSeconds--;
+  }
+}
+
+const timer1 = new Timer();
+const timer2 = new Timer();
+timer1.setSecondes(3);
+timer2.setSecondes(5);
+
+console.log(`timer1残り時間 : ${timer1.remainingSeconds}`);
+console.log(`timer2残り時間 : ${timer2.remainingSeconds}`);
+timer1.tick();
+timer2.tick();
+console.log(`timer1残り時間 : ${timer1.remainingSeconds}`);
+console.log(`timer2残り時間 : ${timer2.remainingSeconds}`);
+timer1.tick();
+timer2.tick();
+console.log(`timer1残り時間 : ${timer1.remainingSeconds}`);
+console.log(`timer2残り時間 : ${timer2.remainingSeconds}`);
+timer1.tick();
+timer2.tick();
+console.log(`timer1残り時間 : ${timer1.remainingSeconds}`);
+console.log(`timer2残り時間 : ${timer2.remainingSeconds}`);
+
+
+
+
+
 // 課題1: 人間を表すPersonクラスを作成する
 // - クラス名はPersonとする
 // - Personクラスのインスタンスは次の情報を持つようにする
