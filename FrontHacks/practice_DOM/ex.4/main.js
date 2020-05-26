@@ -41,3 +41,33 @@ ulElement.removeChild(ulElement.children[2]);
  while (ulRemobeElement.firstChild) {
   ulRemobeElement.removeChild(ulRemobeElement.firstChild);
  }
+
+
+const element = document.getElementById('clickable');
+element.addEventListener('click', (event) => {
+  console.log('elementをクリックしました。');
+  console.log(event);
+});
+
+const h1Element = document.getElementById('clickable1');
+const pElement = document.getElementById('clickable2');
+
+const onClick = (event) => {
+  if (event.target === h1Element) {
+    console.log('h1要素です');
+  } else if (event.target === pElement) {
+    console.log('p要素です。');
+  }
+};
+
+
+h1Element.addEventListener('click', (event) => {
+  console.log('h1をクリック', event, event.target, h1Element);
+});
+
+pElement.addEventListener('click', (event) => {
+  console.log('pをクリック', event);
+});
+
+h1Element.addEventListener('click', onClick);
+pElement.addEventListener('click', onClick);
