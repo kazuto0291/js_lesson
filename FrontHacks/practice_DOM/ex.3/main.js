@@ -65,3 +65,14 @@ const ulElement = document.getElementById('item-container');
 
 // ③ ②で取得したDOMに①で新規作成したDOMをつかする
 ulElement.appendChild(liElement1);
+
+
+const item1Element =document.getElementById('item1');
+item1Element.parentNode.removeChild(item1Element);
+
+// 特定のDOMのすべての子要素を削除する
+// const ulElement = document.getElementById('item-container');
+
+while(ulElement.firstChild) {
+  ulElement.removeChild(ulElement.firstChild);
+}
