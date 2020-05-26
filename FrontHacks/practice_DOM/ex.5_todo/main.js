@@ -53,8 +53,16 @@ const showTodos = () => {
 
     todoItem.textContent = `${taskNumber} : ${todo}`;
     ulElement.appendChild(todoItem);
-  })
-}
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '削除';
+    todoItem.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', (event) => {
+      deleteTodo();
+    });
+  });
+};
 
 
 
@@ -65,7 +73,8 @@ const showTodos = () => {
   //   - 削除後はshowTodosを実行して、Todoリストを整理する
 
   const deleteTodo = (index) => {
-
+    todos.splice(index, 1);
+    showTodos();
   }
 
 })();
