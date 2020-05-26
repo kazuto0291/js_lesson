@@ -71,3 +71,15 @@ pElement.addEventListener('click', (event) => {
 
 h1Element.addEventListener('click', onClick);
 pElement.addEventListener('click', onClick);
+
+
+const textBox = document.getElementById('text');
+const outputButton = document.getElementById('output');
+
+outputButton.addEventListener('click', (event) => {
+  // 入力ボックス内のテキストを出力（=値を取得）
+  console.log('textBoxの中身', textBox.value);
+
+  // 入力ボックスの内のテキストを空にする（＝値の上書き）
+  textBox.value = '';
+})
