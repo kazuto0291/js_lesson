@@ -40,3 +40,25 @@ console.log(itemClass);
 
 const items =document.querySelectorAll('.item');
 console.log(items);
+
+//----------------------------------------------
+
+const element1 =document.getElementById('inner-html');
+console.log('innnerHTML-----------')
+console.log(`変更前：${element1.innerHTML}`);
+element1.innerHTML = '変更した<strong>innnerHTML</strong>テキスト';
+console.log(`変更後：${element1.innerHTML}`);
+
+
+const element2 = document.getElementById('inner-text');
+console.log('innerText---------------');
+console.log(`変更前：${element2.innerText}`);
+element2.innerText = '変更した<strong>innerText</strong>テキスト';
+console.log(`変更後：${element2.innerText}`);
+
+
+const element3 = document.getElementById('text-content');
+console.log('textContent---------------');
+console.log(`変更前：${element3.textContent}`);
+element3.textContent = '変更した<strong>textContent</strong>テキスト';
+console.log(`変更後：${element3.textContent}`);
