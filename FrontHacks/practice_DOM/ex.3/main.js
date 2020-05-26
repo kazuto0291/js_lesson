@@ -45,3 +45,23 @@ img2Element.setAttribute('src', 'https://www.pakutaso.com/shared/img/thumb/TOMne
  */
 
 titleElement.classList.add('koko', 'doko')
+
+
+
+const liElement = document.createElement('li');
+liElement.textContent = 'アイテム';
+liElement.className = 'item';
+liElement.setAttribute('id', 'hello');
+
+console.log(liElement);
+
+
+//①DOMを新規作成する
+const liElement1 = document.createElement('li');
+liElement1.textContent = '新規作成したアイテム'
+
+// ②新規作成したDOMの追加先のDOMを取得する
+const ulElement = document.getElementById('item-container');
+
+// ③ ②で取得したDOMに①で新規作成したDOMをつかする
+ulElement.appendChild(liElement1);
