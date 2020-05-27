@@ -35,13 +35,20 @@ const showTodos = () => {
   while (UlElement.firstChild) {
     UlElement.removeChild(UlElement.firstChild);
   }
-  
+
   todos.forEach((todo, index) => {
     const todoList = document.createElement('li');
     const taskNumber = index + 1
     todoList.textContent =`${taskNumber} : ${todo}`;
     UlElement.appendChild(todoList);
     
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '削除';
+    todoList.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', (event) => {
+      deleteTodo(index);
+    })
   } )
 
 }
