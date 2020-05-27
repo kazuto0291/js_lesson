@@ -2,7 +2,7 @@
 (() => {
   // - 入力したTodoタスクの一覧を保持する配列を定義する
   //   - 変数名は `todos` とする
-const todos = []
+const todos = [];
 
   // - HTMLのID値を使って以下のDOM要素を取得する
   //   - テキストボックス(input[type="text"])
@@ -25,11 +25,10 @@ console.log(todoList);
   // - 戻り値
   //   - `input[type="text"]`から取得した文字列を返す
 const pickupTodoFromTextBox = ()  => {
-  const todoItem = document.createElement('li')
-  todoItem.textContent = textBox.value;
+  const todo = textBox.value;
   textBox.value = '';
-  return todoItem.textContent;
-}
+  return todo;
+};
 
 
   // `validateTodo関数` を実装する
@@ -41,7 +40,16 @@ const pickupTodoFromTextBox = ()  => {
   // - 戻り値
   //   - 引数で受け取ったtodoをそのまま返す
 
-// const validateTodo = ()
+const validateTodo = (todo) => {
+  const ErrorPromise = new Promise ((resolve, reject) => {
+    if (textBox.value ==='') {
+      reject(new Error('何も入力されていません'))
+    } else if (textBox.value === todo.value) {
+      reject(new Error('同じ名前のタスクは既に作成されています'));
+    }
+  })
+  return todo;
+}
 
   // `addTodo関数` を実装する
   // - 実現したい機能
@@ -50,7 +58,10 @@ const pickupTodoFromTextBox = ()  => {
   //   - todo
   // - 戻り値
   //   - 無し
-
+const addTodo = (todo) => {
+  pickupTodoFromTextBox(todo);
+  todos.push(todo);
+}
 
 
   // `showTodos関数` を実装する
@@ -63,7 +74,15 @@ const pickupTodoFromTextBox = ()  => {
   //   - 無し
   // - 戻り値
   //   - 無し
+const showTodos = () => {
+  while (todoList.children) {
+    todoList.removeChild(todoList.children);
+  }
+  todos.forEach((todo, index) => {
+    console.log(addTodo(todo));
+  })
 
+}
 
   // `deleteTodo関数` を実装する
   // - 実現したい機能
