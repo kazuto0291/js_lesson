@@ -2,19 +2,19 @@
 (() => {
   // - 入力したTodoタスクの一覧を保持する配列を定義する
   //   - 変数名は `todos` とする
-const todos = [];
+  const todos = [];
 
   // - HTMLのID値を使って以下のDOM要素を取得する
   //   - テキストボックス(input[type="text"])
   //   - 追加ボタン(button要素)
   //   - Todoリストを一覧表示するul要素
-const textBox = document.getElementById('text-box');
-const addButton =document.getElementsByTagName('button');
-const todoList = document.getElementById('todo-list');
+  const textBox = document.getElementById('text-box');
+  const addButton =document.getElementById('button');
+  const todoList = document.getElementById('todo-list');
 
-console.log(textBox);
-console.log(addButton);
-console.log(todoList);
+  console.log(textBox);
+  console.log(addButton);
+  console.log(todoList);
 
   // `pickupTodoFromTextBox関数` を実装する
   // - 実現したい機能
@@ -24,11 +24,11 @@ console.log(todoList);
   //   - 無し
   // - 戻り値
   //   - `input[type="text"]`から取得した文字列を返す
-const pickupTodoFromTextBox = ()  => {
-  const todo = textBox.value;
-  textBox.value = '';
-  return todo;
-};
+  const pickupTodoFromTextBox = ()  => {
+    const todo = textBox.value;
+    textBox.value = '';
+    return todo;
+  };
 
 
   // `validateTodo関数` を実装する
@@ -40,18 +40,18 @@ const pickupTodoFromTextBox = ()  => {
   // - 戻り値
   //   - 引数で受け取ったtodoをそのまま返す
 
-const validateTodo = (todo) => {
-    if (!todo) {
-      throw new Error('何も入力されていません')
-    }
-    const duplicatedTodos = todos.filter((_todo) => {
-      return todo === _todo;
-    });
-    if (duplicatedTodos.length > 0) {
-      throw new Error('同じ名前のタスクは既に作成されています');
-    }
-    return todo;
-  };
+  const validateTodo = (todo) => {
+      if (!todo) {
+        throw new Error('何も入力されていません')
+      }
+      const duplicatedTodos = todos.filter((_todo) => {
+        return todo === _todo;
+      });
+      if (duplicatedTodos.length > 0) {
+        throw new Error('同じ名前のタスクは既に作成されています');
+      }
+      return todo;
+    };
 
 
   // `addTodo関数` を実装する
@@ -61,9 +61,9 @@ const validateTodo = (todo) => {
   //   - todo
   // - 戻り値
   //   - 無し
-const addTodo = (todo) => {
-  todos.push(todo);
-};
+  const addTodo = (todo) => {
+    todos.push(todo);
+  };
 
 
   // `showTodos関数` を実装する
@@ -76,26 +76,26 @@ const addTodo = (todo) => {
   //   - 無し
   // - 戻り値
   //   - 無し
-const showTodos = () => {
-  while (todoList.firstChild) {
-    todoList.removeChild(todoList.firstChild);
-  }
-  todos.forEach((todo, index) => {
-    const todoItem = document.createElement('li');
-    const taskNumber = index + 1;
-    todoItem.textContent =`${taskNumber} : ${todo}`;
-    todoList.appendChild(todoItem);
+  const showTodos = () => {
+    while (todoList.firstChild) {
+      todoList.removeChild(todoList.firstChild);
+    }
+    todos.forEach((todo, index) => {
+      const todoItem = document.createElement('li');
+      const taskNumber = index + 1;
+      todoItem.textContent =`${taskNumber} : ${todo}`;
+      todoList.appendChild(todoItem);
 
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent ='削除';
-    todoItem.appendChild(deleteButton);
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent ='削除';
+      todoItem.appendChild(deleteButton);
 
-    deleteButton.addEventListener('click', (event) => {
-      promiseTaskOfDeletingTodo();
+      deleteButton.addEventListener('click', (event) => {
+        promiseTaskOfDeletingTodo();
+      })
     })
-  })
 
-}
+  }
 
   // `deleteTodo関数` を実装する
   // - 実現したい機能
@@ -123,16 +123,27 @@ const showTodos = () => {
   //   - 無し
   // - 戻り値
   //   - 無し
-const promiseTaskOfAddingTodo = () => {
-  const promise =Promise.resolve(todo);
+  const promiseTaskOfAddingTodo = () => {
+    Promise
+      .resolve()
+      .then(() => {
+        const todo = pickupTodoFromTextBox();
 
-  promise
-    .then(pickupTodoFromTextBox(todo))
-    .then(validateTodo(todo))
-    .then(addTodo(todo))
-    .then(showTodos())
-    .catch((error) => {alert(error.message);});
-}
+        return todo;
+      })
+      .then((todo) => {
+        const _todo = validateTodo(todo);
+
+        return _todo;
+      })
+      .then((todo) => {
+        addTodo(todo);
+        showTodos();
+      })
+      .catch((error) => {
+        alert(error.message);
+      })
+  }
 
 
   // `promiseTaskOfDeletingTodo関数を実装する`
@@ -147,9 +158,19 @@ const promiseTaskOfAddingTodo = () => {
   //   - index : 配列から削除したい要素のインデックス番号
   // - 戻り値
   //   - 無し
-
+  const promiseTaskOfDeletingTodo = (index) => {
+    Promise
+      .resolve(index)
+      .then((_index) => {
+        deleteTodo(_index);
+        showTodos();
+      })
+  }
 
 
   // 追加ボタンをクリックしたら `promiseTaskOfAddingTodo` を実行する
+  addButton.addEventListener('click', () => {
+    promiseTaskOfAddingTodo();
+  })
 
 })();
