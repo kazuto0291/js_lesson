@@ -102,6 +102,9 @@ const showTodos = () => {
   //   - 配列todosから対応するtodo情報を削除する
   // - 引数
   //   - index : 配列から削除したい要素のインデックス番号
+  const deleteTodo = (index) => {
+    todos.splice(index, 1);
+  };
 
 
 
