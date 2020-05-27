@@ -123,7 +123,16 @@ const showTodos = () => {
   //   - 無し
   // - 戻り値
   //   - 無し
+const promiseTaskOfAddingTodo = () => {
+  const promise =Promise.resolve(todo);
 
+  promise
+    .then(pickupTodoFromTextBox(todo))
+    .then(validateTodo(todo))
+    .then(addTodo(todo))
+    .then(showTodos())
+    .catch((error) => {alert(error.message);});
+}
 
 
   // `promiseTaskOfDeletingTodo関数を実装する`
