@@ -2,14 +2,19 @@
 (() => {
   // - 入力したTodoタスクの一覧を保持する配列を定義する
   //   - 変数名は `todos` とする
-
+const todos = []
 
   // - HTMLのID値を使って以下のDOM要素を取得する
   //   - テキストボックス(input[type="text"])
   //   - 追加ボタン(button要素)
   //   - Todoリストを一覧表示するul要素
+const textBox = document.getElementById('text-box');
+const addButton =document.getElementsByTagName('button');
+const todoList = document.getElementById('todo-list');
 
-
+console.log(textBox);
+console.log(addButton);
+console.log(todoList);
 
   // `pickupTodoFromTextBox関数` を実装する
   // - 実現したい機能
@@ -19,7 +24,12 @@
   //   - 無し
   // - 戻り値
   //   - `input[type="text"]`から取得した文字列を返す
-
+const pickupTodoFromTextBox = ()  => {
+  const todoItem = document.createElement('li')
+  todoItem.textContent = textBox.value;
+  textBox.value = '';
+  return todoItem.textContent;
+}
 
 
   // `validateTodo関数` を実装する
@@ -31,7 +41,7 @@
   // - 戻り値
   //   - 引数で受け取ったtodoをそのまま返す
 
-
+// const validateTodo = ()
 
   // `addTodo関数` を実装する
   // - 実現したい機能
