@@ -77,11 +77,22 @@ const addTodo = (todo) => {
   // - 戻り値
   //   - 無し
 const showTodos = () => {
-  while (todoList.children) {
-    todoList.removeChild(todoList.children);
+  while (todoList.firstChild) {
+    todoList.removeChild(todoList.firstChild);
   }
   todos.forEach((todo, index) => {
-    console.log(addTodo(todo));
+    const todoItem = document.createElement('li');
+    const taskNumber = index + 1;
+    todoItem.textContent =`${taskNumber} : ${todo}`;
+    todoList.appendChild(todoItem);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent ='削除';
+    todoItem.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', (event) => {
+      promiseTaskOfDeletingTodo();
+    })
   })
 
 }
