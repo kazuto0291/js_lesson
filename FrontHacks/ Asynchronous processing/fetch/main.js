@@ -35,7 +35,10 @@
         const numberTitleItem = document.createElement('li');
         numberTitleItem.textContent =`${index + 1}件目のクイズデータ`;
         quizListContainer.appendChild(numberTitleItem);
-      })
+
+        const quiDataList = buildQuizList(quiz);
+        numberTitleItem.appendChild(quiDataList);
+      });
     })
   
     // `buildQuizList関数` を実装する
@@ -52,9 +55,14 @@
     //  - 戻り値
     //    - ul要素のDOM
     const buildQuizList = (quiz) => {
+      const quizContainer = document.createElement('ul');
+      for (const prop in quiz) {
+        const item = document.createElement('li');
+        item.innerHTML = `<strong>${prop}</strong> : ${quiz[prop]}`;
+        quizContainer.appendChild(item);
+      }
 
-
-      return
+      return quizContainer;
     }
   
   })();
