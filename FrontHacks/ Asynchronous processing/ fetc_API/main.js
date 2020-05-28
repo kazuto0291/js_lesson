@@ -20,9 +20,10 @@ const gameState = {
 
 
   // HTMLのid値がセットされているDOMを取得する
-const question = document.getElementById('question');
-const 
-
+const questionElement = document.getElementById('question');
+const resultElement =document.getElementById('result')
+const answersContainer = document.getElementById('answers');
+const restartButton = document.getElementById('restart-button');
 
   // ページの読み込みが完了したらクイズ情報を取得する
 
