@@ -87,6 +87,15 @@ restartButton.addEventListener('click', (event) => {
 
   const setNextQuiz = () => {
     questionElement.textContent = '';
+    removeAllAnswers();
+
+    if (gameState.currentIndex < gameState.quizzes.length) {
+      //次のクイズ出題
+      console.log('次の問題出題')
+    }else {
+      // 結果画面の表示
+      console.log('終了')
+    }
   };
 
   // finishQuiz関数を実装する
@@ -97,7 +106,10 @@ restartButton.addEventListener('click', (event) => {
   //   - 無し
   // - 戻り値
   //   - 無し
-
+  const finishQuiz = () => {
+    resultElement.textContent = `${gameState.numberOfCorrects}/${gameState.quizzes.length} corrents`
+    restartButton.hidden = false;
+  }
 
 
   // removeAllAnswers関数を実装する
