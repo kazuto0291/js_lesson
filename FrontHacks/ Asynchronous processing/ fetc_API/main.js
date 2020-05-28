@@ -4,6 +4,7 @@
   // 利用するAPI情報元
   //   - 利用するAPI : https://opentdb.com/api.php?amount=10&type=multiple
 
+  const API_URL = ' https://opentdb.com/api.php?amount=10&type=multiple';
 
   // 「gameState」オブジェクトを作る
   // - クイズアプリのデータ管理用オブジェクト
@@ -11,11 +12,16 @@
   //   - quizzes : fetchで取得したクイズデータの配列(results)を保持する
   //   - currentIndex : 現在何問目のクイズに取り組んでいるのかをインデックス番号で保持する
   //   - numberOfCorrects : 正答数を保持する
-
+const gameState = {
+  quizzes: fetch(results),
+  currentIndex: [],
+  numberOfCorrects: '正解数'
+}
 
 
   // HTMLのid値がセットされているDOMを取得する
-
+const question = document.getElementById('question');
+const 
 
 
   // ページの読み込みが完了したらクイズ情報を取得する
