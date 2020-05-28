@@ -27,12 +27,12 @@ const restartButton = document.getElementById('restart-button');
 
   // ページの読み込みが完了したらクイズ情報を取得する
 window.addEventListener('load', (event) => {
-
+  fetchQuizData();
 });
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
 restartButton.addEventListener('click', (event) => {
-
+  fetchQuizData();
 });
 
 
@@ -58,13 +58,18 @@ restartButton.addEventListener('click', (event) => {
   const fetchQuizData = () => {
     questionElement.textContent = 'Now loading...';
     resultElement.textContent ='';
-    restartButton
-    const url =fetch(API_URL)
+    restartButton.hidden = true;
+
+    fetch(API_URL)
         .then(response => {
           return response.json();
         })
         .then((data) => {
-          console.log(data.results)
+          gameState.quizzes = data.results;
+          gameState.currentIndex = 0;
+          gameState.numberOfCorrects = 0;
+
+          setNextQuiz();
         })
   }
   // setNextQuiz関数を実装する
@@ -80,6 +85,9 @@ restartButton.addEventListener('click', (event) => {
   // - 戻り値
   //   - 無し
 
+  const setNextQuiz = () => {
+    questionElement.textContent = '';
+  };
 
   // finishQuiz関数を実装する
   // - 実現したいこと
@@ -99,7 +107,11 @@ restartButton.addEventListener('click', (event) => {
   //   - 無し
   // - 戻り値
   //   - 無し
-
+  const removeAllAnswers = () => {
+    while (answersContainer.firstChild) {
+      answersContainer.removeChild(answersContainer.firstChild);
+    }
+  };
 
 
   // makeQuiz関数を実装する
