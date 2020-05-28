@@ -148,14 +148,20 @@ restartButton.addEventListener('click', (event) => {
   const makeQuiz = (quiz) => {
     //クイズ出題処理
     console.log(quiz);
-    const a = shuffle([1, 2, 3, 4]);
-    console.log(a)
+    const answers = buildAnswers(quiz)
+    console.log(answers)
 
   };
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
-
+const buildAnswers = (quiz) => {
+  const answers = [
+    quiz.correct_answer,
+    ...quiz.incorrect_answers
+  ];
+  return shuffle(answers);
+}
 
   // `shuffle関数` を実装する
   // - 実現したいこと
