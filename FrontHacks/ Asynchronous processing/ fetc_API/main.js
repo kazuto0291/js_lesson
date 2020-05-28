@@ -92,9 +92,13 @@ restartButton.addEventListener('click', (event) => {
     if (gameState.currentIndex < gameState.quizzes.length) {
       //次のクイズ出題
       console.log('次の問題出題')
+      const quiz = gameState.quizzes[gameState.currentIndex];
+      makeQuiz(quiz);
     }else {
       // 結果画面の表示
       console.log('終了')
+      finishQuiz();
+
     }
   };
 
@@ -141,7 +145,13 @@ restartButton.addEventListener('click', (event) => {
   //   - オブジェクト(クイズデータ1件)
   // - 戻り値無し
   //   - 無し
+  const makeQuiz = (quiz) => {
+    //クイズ出題処理
+    console.log(quiz);
+    const a = shuffle([1, 2, 3, 4]);
+    console.log(a)
 
+  };
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
@@ -158,7 +168,18 @@ restartButton.addEventListener('click', (event) => {
   //   - array : 配列
   // - 戻り値
   //   - shffuledArray : シャッフル後の配列(引数の配列とは別の配列であることに注意する)
+const shuffle = (array) => {
+  const copiedArray =array.slice();
 
+  for (let i = copiedArray.length - 1; i >=0; i--) {
+    //0~iのランダムな数値を取得
+    let rand = Math.floor( Math.random() * ( i + 1 ));
+
+    //配列の数値を入れ替える
+    [copiedArray[i], copiedArray[rand]] = [copiedArray[rand], copiedArray[i]];
+  }
+  return copiedArray
+};
 
 
   // unescapeHTML関数を実装する
