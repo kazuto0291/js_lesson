@@ -26,10 +26,14 @@ const answersContainer = document.getElementById('answers');
 const restartButton = document.getElementById('restart-button');
 
   // ページの読み込みが完了したらクイズ情報を取得する
+window.addEventListener('load', (event) => {
 
+});
 
   // 「Restart」ボタンをクリックしたら再度クイズデータを取得する
+restartButton.addEventListener('click', (event) => {
 
+});
 
 
 
