@@ -147,10 +147,30 @@ restartButton.addEventListener('click', (event) => {
   //   - 無し
   const makeQuiz = (quiz) => {
     //クイズ出題処理
-    console.log(quiz);
     const answers = buildAnswers(quiz)
-    console.log(answers)
 
+    questionElement.textContent = unescapeHTML(quiz.question);
+
+    console.log(quiz.correct_answer);
+
+    answers.forEach((answer, index) => {
+      const liElement = document.createElement('li');
+      liElement.textContent = unescapeHTML(answer);
+      answersContainer.appendChild(liElement);
+
+      liElement.addEventListener('click', (event) => {
+        const correctAnswer =unescapeHTML(quiz.correct_answer);
+        if (correctAnswer === liElement.textContent) {
+          gameState.numberOfCorrects++;
+          alert('Correct answer!!')
+        } else {
+          alert(`Wrong answer... (The correct answer is "${correctAnswer}")`);
+        }
+
+        gameState.currentIndex++;
+        setNextQuiz();
+      })
+    })
   };
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
@@ -197,6 +217,14 @@ const shuffle = (array) => {
   //   - 文字列
   // - 戻り値
   //   - 文字列
-
+  const unescapeHTML = (str) => {
+      const div = document.createElement("div");
+      div.innerHTML =  str.replace(/</g,"&lt;")
+                          .replace(/>/g,"&gt;")
+                          .replace(/ /g, "&nbsp;")
+                          .replace(/\r/g, "&#13;")
+                          .replace(/\n/g, "&#10;");
+      return div.textContent || div.innerText;
+  }
 
 })();
