@@ -13,9 +13,9 @@
   //   - currentIndex : 現在何問目のクイズに取り組んでいるのかをインデックス番号で保持する
   //   - numberOfCorrects : 正答数を保持する
 const gameState = {
-  quizzes: fetch(results),
-  currentIndex: [],
-  numberOfCorrects: '正解数'
+  quizzes: [],
+  currentIndex: 0,
+  numberOfCorrects: 0
 }
 
 
