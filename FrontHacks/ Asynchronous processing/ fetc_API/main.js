@@ -55,7 +55,18 @@ restartButton.addEventListener('click', (event) => {
   // - 戻り値
   //   - 無し
 
-
+  const fetchQuizData = () => {
+    questionElement.textContent = 'Now loading...';
+    resultElement.textContent ='';
+    restartButton
+    const url =fetch(API_URL)
+        .then(response => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data.results)
+        })
+  }
   // setNextQuiz関数を実装する
   // - 実現したいこと
   //   - 表示要素をリセットする
