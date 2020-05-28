@@ -9,6 +9,16 @@
 const API_URL = 'https://opentdb.com/api.php?amount=10';
 
 
+class QuizFetcher {
+  static fetchMultipleQuizData() {
+
+  }
+  static fetchTrueOrFalseQuizData() {
+    
+  }
+}
+
+
 // 課題2: fetchMultipleQuizDataメソッドを実行してAPIの結果に含まれるresultsプロパティの値をconsole.logで出力する
 
 
