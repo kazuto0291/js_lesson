@@ -141,11 +141,14 @@ const removeAllAnswers = () => {
   // - 戻り値無し
   //   - 無し
   const maekQuize = (quiz) => {
-    console.log(quiz)
     questionElement.textContent = quiz.question;
+
     const answers = buidAnswers(quiz);
-    console.log(answers);
-    
+    answers.forEach((answer, index) => {
+      const liElement = document.createElement('li');
+      liElement.textContent = answer;
+      answersElement.appendChild(liElement);
+    })
   }
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
