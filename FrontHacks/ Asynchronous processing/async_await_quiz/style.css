@@ -1,0 +1,12 @@
+body {
+  background-color: gainsboro;
+  width: 800px;
+}
+h1 {
+  text-align: center;
+}
+
+#container {
+  text-align: center;
+  /* margin: auto; */
+}
