@@ -88,8 +88,10 @@ restratButton.addEventListener('click', (event) => {
   const setNextQuiz = () => {
     questionElement.textContent ='';
     removeAllAnswers();
-    if (gameState.currentIndex <= gameState.quizzes) {
-
+    if (gameState.currentIndex < gameState.quizzes.length) {
+      console.log('次の問題出題')
+      const quiz = gameState.quizzes[gameState.currentIndex];
+      maekQuize(quiz);
     } else {
       finishQuize();
     }
@@ -104,7 +106,8 @@ restratButton.addEventListener('click', (event) => {
   // - 戻り値
   //   - 無し
   const finishQuize = () => {
-    resultElement.textContent =``
+    resultElement.textContent =`${gameState.numberOfcorrects}/${gameState.quizzes.length} corrects`
+    restratButton.hidden = false;
   }
 
 
@@ -137,7 +140,11 @@ const removeAllAnswers = () => {
   //   - オブジェクト(クイズデータ1件)
   // - 戻り値無し
   //   - 無し
-
+  const maekQuize = (quiz) => {
+    console.log(quiz)
+    questionElement.textContent = quiz.question;
+    
+  }
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
@@ -153,7 +160,18 @@ const removeAllAnswers = () => {
   //   - array : 配列
   // - 戻り値
   //   - shffuledArray : シャッフル後の配列(引数の配列とは別の配列であることに注意する)
+const shuffle = (array) => {
+  const copiedArray = array.slice();
 
+  for (let i = copiedArray.length -1; i >= 0; i--) {
+    //0~iのランダムな数値を取得
+    const rand =Math.floor( Math.random() * ( i + 1) );
+
+    // 配列の数値を入れ替える
+    [copiedArray[i], copiedArray[rand]] = [copiedArray[rand], copiedArray[i]];
+  }
+  return copiedArray;
+};
 
 
   // unescapeHTML関数を実装する
