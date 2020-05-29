@@ -54,22 +54,39 @@ restratButton.addEventListener('click', (event) => {
   //   - 無し
   // - 戻り値
   //   - 無し
-  const fetchQuizData = () => {
+  const fetchQuizData = async () => {
     questionElement.textContent = 'Now loading...';
     resultElement.textContent = '';
     restratButton.hidden = true;
 
-    fetch(API_URL)
-      .then(resuponce => {
-        return resuponce.json()
-      })
-      .then(data => {
-        gameState.quizzes = data.results;
-        gameState.currentIndex = 0;
-        gameState.numberOfcorrects = 0;
+    try {
+      const response = await fetch(API_URL);
+      const data = await response.json();
 
-        setNextQuiz();
-      })
+      console.log(response);
+      console.log(data);
+
+      gameState.quizzes = data.results;
+      gameState.currentIndex = 0;
+      gameState.numberOfcorrects = 0;
+
+      setNextQuiz();
+    } catch (error) {
+      console.log('エラーです',error);
+    }
+
+
+    //  fetch(API_URL)
+    //   .then(resuponce => {
+    //     return resuponce.json()
+    //   })
+    //   .then(data => {
+    //     gameState.quizzes = data.results;
+    //     gameState.currentIndex = 0;
+    //     gameState.numberOfcorrects = 0;
+
+    //     setNextQuiz();
+    //   })
 
   }
 
