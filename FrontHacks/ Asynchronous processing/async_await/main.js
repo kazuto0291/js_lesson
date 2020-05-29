@@ -50,3 +50,25 @@ async function runAsyncFunc2() {
   console.log('result4;', result4);
 }
 runAsyncFunc2()
+
+
+
+// async/awaitの例外処理
+const throwExeptionFunc = async () => {
+  throw new Error('エラーです');
+  return 'throwで例外処理が発生するためにこのreturnは処理されない';
+};
+
+throwExeptionFunc()
+.then(value1 => { console.log('valuel:', value1);})
+.catch(error1 => {console.log('error1:', error1.message);});
+
+async function asyncFunc() {
+  try {
+    const value2 = await throwExeptionFunc();
+    console.log('value2;', value2);
+  } catch(error2) {
+    console.log('error2 : ', error2.message);
+  }
+}
+asyncFunc();
