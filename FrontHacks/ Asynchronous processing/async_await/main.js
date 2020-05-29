@@ -16,3 +16,37 @@ const callAsyncFunc = async () => {
   const value = await addAfter3Seconds(1, 2);
   console.log(value, '@@@@@@@@@@@@')
 }
+
+//asyncを使って定義したasync関数
+const addWithAsync = async (x, y) => {
+  return x + y;
+};
+
+//addWithAsync関数はasync関数のため、
+// 戻り値常にPromiseオブジェクトとなる
+const result1 = addWithAsync(1, 2);
+console.log('result1', result1);
+
+// async関数内でreturnした値はthenメソッド経由で
+// 値を受け渡しできる
+addWithAsync(1, 2)
+  .then(result2 => {
+    console.log('result2', result2);
+  })
+
+
+// awaitを使わない場合の実装
+function runAsyncFunc1() {
+  addWithAsync(1,2)
+  .then(result3 => {
+    console.log('result3:', result3);
+  });
+}
+runAsyncFunc1();
+
+// awaitを使った場合の実装
+async function runAsyncFunc2() {
+  const result4 = await addWithAsync(3,5);
+  console.log('result4;', result4);
+}
+runAsyncFunc2()
