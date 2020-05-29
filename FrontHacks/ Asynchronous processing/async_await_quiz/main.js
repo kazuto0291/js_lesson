@@ -143,12 +143,20 @@ const removeAllAnswers = () => {
   const maekQuize = (quiz) => {
     console.log(quiz)
     questionElement.textContent = quiz.question;
+    const answers = buidAnswers(quiz);
+    console.log(answers);
     
   }
 
   // quizオブジェクトの中にあるcorrect_answer, incorrect_answersを結合して
   // 正解・不正解の解答をシャッフルする。
-
+const buidAnswers = (quiz) => {
+  const answers = [];
+  answers.push(...quiz.incorrect_answers);
+  answers.push(quiz.correct_answer);
+  // console.log(answers);
+  return shuffle(answers);
+}
 
   // `shuffle関数` を実装する
   // - 実現したいこと
