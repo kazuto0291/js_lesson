@@ -141,20 +141,20 @@ const removeAllAnswers = () => {
   // - 戻り値無し
   //   - 無し
   const maekQuize = (quiz) => {
-    questionElement.textContent = quiz.question;
+    questionElement.textContent = unescapeHTML(quiz.question);
 
     const answers = buidAnswers(quiz);
     answers.forEach((answer, index) => {
       const liElement = document.createElement('li');
-      liElement.textContent = answer;
+      liElement.textContent = unescapeHTML(answer);
       answersElement.appendChild(liElement);
 
       liElement.addEventListener('click', (event) => {
-        if (liElement.textContent === quiz.correct_answer) {
+        if (liElement.textContent === unescapeHTML(quiz.correct_answer)) {
           gameState.numberOfcorrects++;
           alert('Correct answer!!');
         } else {
-          alert(`Wrong answer... (The correct answer is "${quiz.correct_answer}")`)
+          alert(`Wrong answer... (The correct answer is "${unescapeHTML(quiz.correct_answer)}")`)
         };
         gameState.currentIndex++;
         setNextQuiz();
@@ -205,6 +205,14 @@ const shuffle = (array) => {
   //   - 文字列
   // - 戻り値
   //   - 文字列
-
+  const unescapeHTML =(str) => {
+    const div = document.createElement("div");
+    div.innerHTML =  str.replace(/</g,"&lt;")
+                        .replace(/>/g,"&gt;")
+                        .replace(/ /g, "&nbsp;")
+                        .replace(/\r/g, "&#13;")
+                        .replace(/\n/g, "&#10;");
+    return div.textContent || div.innerText;
+  }
 
 })();
