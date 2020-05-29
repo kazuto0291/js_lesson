@@ -89,7 +89,7 @@ restratButton.addEventListener('click', (event) => {
     questionElement.textContent ='';
     removeAllAnswers();
     if (gameState.currentIndex < gameState.quizzes.length) {
-      console.log('次の問題出題')
+      // console.log('次の問題出題')
       const quiz = gameState.quizzes[gameState.currentIndex];
       maekQuize(quiz);
     } else {
@@ -148,6 +148,17 @@ const removeAllAnswers = () => {
       const liElement = document.createElement('li');
       liElement.textContent = answer;
       answersElement.appendChild(liElement);
+
+      liElement.addEventListener('click', (event) => {
+        if (liElement.textContent === quiz.correct_answer) {
+          gameState.numberOfcorrects++;
+          alert('Correct answer!!');
+        } else {
+          alert(`Wrong answer... (The correct answer is "${quiz.correct_answer}")`)
+        };
+        gameState.currentIndex++;
+        setNextQuiz();
+      })
     })
   }
 
