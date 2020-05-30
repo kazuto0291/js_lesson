@@ -1,5 +1,10 @@
 module.exports = {
-  add: () => {
-
+  add: (numbers) => {
+    let result = 0;;
+    numbers.forEach(num => {
+      result += num;
+    })
+    
+    return result;
   }
 };
