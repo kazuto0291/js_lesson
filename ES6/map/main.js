@@ -71,3 +71,24 @@ const speeds = trips.map((trip) => {
 })
 
 console.log(speeds);
+
+// ==================================
+
+
+function pluck(array, property) {
+  return array.map((arr) => {
+    return arr[property];   //arr.propertyだとundefindeになる。
+  });
+}
+
+const colorObjects = [
+  { color: '赤'},
+  { color: '青'},
+  { color: '黄色'},
+  { color: '緑'},
+  { color: '紫'},
+];
+
+const colorNames = pluck(colorObjects, 'color');
+
+console.log(colorNames);
