@@ -34,3 +34,9 @@ const prices = cars.map(function(car) {
 })
 
 console.log(prices);
+
+const types = cars.map((car) => {
+  return car.type;
+})
+
+console.log(types);
