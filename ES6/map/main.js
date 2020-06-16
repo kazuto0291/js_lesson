@@ -40,3 +40,34 @@ const types = cars.map((car) => {
 })
 
 console.log(types);
+
+// ===================================
+
+const images = [
+  { height: '34px', widht: '39px'},
+  { height: '53px', widht: '89px'},
+  { height: '24px', widht: '53px'},
+  { height: '65px', widht: '95px'}
+];
+
+const heights = images.map((image) => {
+  return image.height;
+})
+
+console.log(heights);
+
+// ================================
+
+const trips = [
+  { distance: 34, time: 10},
+  { distance: 90, time: 50},
+  { distance: 50, time: 25},
+  { distance: 86, time: 20},
+  { distance: 45, time: 15}
+];
+
+const speeds = trips.map((trip) => {
+  return trip.distance / trip.time;
+})
+
+console.log(speeds);
