@@ -33,3 +33,22 @@ const filterProducts3 = products.filter(function(product) {
 
 console.log(filterProducts3);
 
+// =============================
+
+
+const post = {id: 4, title: '初めての投稿'};
+
+const comments = [
+  { postId: 4, content: 'いい記事ですね'},
+  { postId: 3, content: '勉強になります'},
+  { postId: 4, content: 'ためになりました'},
+  { postId: 3, content: 'なるほど'},
+]
+
+function commentsForPost(post, comments) {
+  return comments.filter(function(comment) {
+    return comment.postId === post.id;
+  })
+}
+
+console.log(commentsForPost(post, comments));
