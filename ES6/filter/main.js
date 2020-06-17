@@ -78,3 +78,20 @@ const filteredUsers = users.filter((user) => {
 })
 
 console.log(filteredUsers);
+
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+const numbers2 = [10, 20, 30, 40, 50, 60 ,70, 80];
+
+const lessThanFifteen =reject(numbers2, function(number) {
+  return number < 35;
+});
+
+function reject(array, iteratorFunction) {
+  return array.filter((element) => {
+    return !iteratorFunction(element);
+  })
+}
+
+console.log(lessThanFifteen);
