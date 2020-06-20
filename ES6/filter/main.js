@@ -95,5 +95,3 @@ function reject(array, iteratorFunction) {
 }
 
 console.log(lessThanFifteen);
-
-
