@@ -21,3 +21,16 @@ users.find((user) => {
 console.log(user);
 //=====================================
 
+function Car(model) {
+  this.model =model;
+}
+
+const cars = [
+  new Car('プリウス'),
+  new Car('ノート'),
+  new Car('アクア')
+];
+
+cars.find(function(car) {
+  return car.model === 'アクア'
+})
