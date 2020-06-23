@@ -12,4 +12,12 @@ for (let i = 0; i < users.length; i++) {
     break;
   }
 }
+
+users.find((user) => {
+  return user.name === '三郎';
+})
+
+
 console.log(user);
+//=====================================
+
