@@ -34,3 +34,22 @@ const cars = [
 cars.find(function(car) {
   return car.model === 'アクア'
 })
+
+//=====================================
+
+const posts = [
+  {id: 1, title: '投稿1'},
+  {id: 2, title: '投稿2'},
+  {id: 3, title: '投稿3'},
+  {id: 4, title: '投稿4'}
+];
+
+const comment = { postId: 2, content: 'いいね'};
+
+function postForComment(posts, comment) {
+  return posts.find(function(post) {
+    return post.id === comment.postId;
+  });
+}
+
+console.log(postForComment(post, comment));
