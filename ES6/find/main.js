@@ -52,4 +52,17 @@ function postForComment(posts, comment) {
   });
 }
 
-console.log(postForComment(post, comment));
+console.log(postForComment(posts, comment));
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+const members = [
+  {id: 1, admin: false },
+  {id: 2, admin: false },
+  {id: 3, admin: true }
+]
+
+const admin = members.find((member) => {
+  return member.admin === true;
+});
+
+console.log(admin);
