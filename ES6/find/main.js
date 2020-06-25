@@ -80,3 +80,21 @@ const account = accounts.find((account) => {
 });
 
 console.log(account);
+
+// ============================================
+function findWhere(array, criteria) {
+  return array.find((element) => {
+    const property = Object.keys(criteria)[0];
+
+    return element[property] === criteria[property];
+  })
+}
+
+const ladders = [
+  { id: 1, height: 20 },
+  { id: 3, height: 25}
+];
+
+findWhere(ladders, {height: 25});
+
+console.log(findWhere(ladders, {height: 25}));
