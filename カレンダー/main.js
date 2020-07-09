@@ -17,7 +17,7 @@ console.clear();
         isDisabled: true,
       });
     }
-    console.log(dates);
+    return dates;
   }
 
   function getCalendarBody() {
@@ -31,7 +31,7 @@ console.clear();
         isDisabled: false,
       });
     }
-    console.log(dates);
+    return dates;
   }
   
   function getCalendarTail() {
@@ -45,10 +45,19 @@ console.clear();
         isDisabled:true,
       })
     }
-    console.log(dates);
+    return dates;
   }
 
-  getCalendarTail();
+  function createCalendar() {
+    const dates = [
+      ...getCalendarHead(),
+      ...getCalendarBody(),
+      ...getCalendarTail(),
+    ];
+    console.log(dates);
 
-  
+  }
+
+  createCalendar();
+
 }
