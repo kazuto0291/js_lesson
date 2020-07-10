@@ -49,6 +49,15 @@ console.clear();
   }
 
   function createCalendar() {
+    const tbody = document.querySelector('tbody');
+
+    while (tbody.firstChild) {
+      tbody.removeChild(tbody.firstChild);
+    }
+
+    const title = `${year}/${String(month + 1).padStart(2, '0')}`;
+    document.getElementById('title').textContent = title;
+
     const dates = [
       ...getCalendarHead(),
       ...getCalendarBody(),
