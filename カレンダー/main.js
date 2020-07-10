@@ -2,8 +2,8 @@
 console.clear();
 
 {
-  const year = 2020;
-  const month = 6
+  let year = 2020;
+  let month = 6
 
   function getCalendarHead() {
     const dates= [];
@@ -80,6 +80,25 @@ console.clear();
       document.querySelector('tbody').appendChild(tr);
     });
   }
+
+
+  document.getElementById('prev').addEventListener('click', () => {
+    month--;
+    if (month < 0) {
+      year--;
+      month = 11;
+    }
+    createCalendar();
+  })
+
+  document.getElementById('next').addEventListener('click', () => {
+    month++;
+    if (month > 11) {
+      year++;
+      month = 0;
+    }
+    createCalendar();
+  })
 
   createCalendar();
 
