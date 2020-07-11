@@ -2,8 +2,9 @@
 console.clear();
 
 {
-  let year = 2020;
-  let month = 6
+  const today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth();
 
   function getCalendarHead() {
     const dates= [];
@@ -31,6 +32,11 @@ console.clear();
         isDisabled: false,
       });
     }
+
+    if (year === today.getFullYear() && month === today.getMonth()) {
+      dates[today.getDate() - 1].isToday = true;
+    }
+
     return dates;
   }
   
@@ -45,6 +51,7 @@ console.clear();
         isDisabled:true,
       })
     }
+
     return dates;
   }
 
