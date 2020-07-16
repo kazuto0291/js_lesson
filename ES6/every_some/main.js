@@ -24,3 +24,7 @@ for (let i = 0; i < computers.lengtu; i++) {
 
 console.log(allComputersCanRun);
 console.log(someComputersCanRun);
+
+computers.every(function(computer) {
+  return  console.log(computer.ram >= 16);
+})
