@@ -54,3 +54,37 @@ const someEx2 = names.some(function(name) {
 });
 
 console.log(someEx2);
+
+// ==============================
+
+function Field(value) {
+  this.value = value;
+}
+
+Field.prototype.validate = function() {
+  return this.value.length > 0;
+}
+
+const username = new Field('my_username');
+const password = new Field('my_password');
+const birthday = new Field('2010/10/10');
+
+// console.log(username.validate() && password.validate() && birthday.validate());
+
+const fileds = [
+  username,
+  password,
+  birthday
+];
+
+const everyEx3 = fileds.every(function(filed) {
+  return filed.validate();
+});
+
+console.log(everyEx3, '@@@@')
+
+if (everyEx3) {
+  // サーバにリクエストを投げる
+} else {
+  // エラーを表示する
+}
