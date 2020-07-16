@@ -25,6 +25,14 @@ for (let i = 0; i < computers.lengtu; i++) {
 console.log(allComputersCanRun);
 console.log(someComputersCanRun);
 
-computers.every(function(computer) {
-  return  console.log(computer.ram >= 16);
-})
+const everyEx = computers.every(function(computer) {
+  return  computer.ram >= 16;
+});
+
+console.log(everyEx);
+
+const someEx = computers.some(function(computer) {
+  return computer.ram >= 16;
+});
+
+console.log(someEx);
