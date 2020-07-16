@@ -36,3 +36,21 @@ const someEx = computers.some(function(computer) {
 });
 
 console.log(someEx);
+
+const names = [
+  'けん',
+  'はなこ',
+  'そういちろう'
+];
+
+const everyEx2 = names.every(function(name) {
+  return name.length >= 3;
+});
+
+console.log(everyEx2);
+
+const someEx2 = names.some(function(name) {
+  return name.length >= 3;
+});
+
+console.log(someEx2);
