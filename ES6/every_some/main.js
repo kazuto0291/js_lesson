@@ -88,3 +88,20 @@ if (everyEx3) {
 } else {
   // エラーを表示する
 }
+
+// =========================
+
+const users = [
+  { id: 21, hasSubmitted: true},
+  { id: 62, hasSubmitted: false},
+  {id: 4, hasSubmitted: true}
+];
+
+const hasSubmitted = users.every(function(user) {
+  return user.hasSubmitted === true;
+});
+
+console.log(hasSubmitted, '@@');
+
+// ===============================
+
