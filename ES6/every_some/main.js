@@ -105,3 +105,16 @@ console.log(hasSubmitted, '@@');
 
 // ===============================
 
+const requests = [
+  {url: '/photos', status:'complete'},
+  {url: '/alvums', status: 'pending'},
+  {url: '/users', status: 'failed'}
+];
+
+const inProgress = requests.some(function(request) {
+  return request.status === 'pending';
+});
+
+console.log(inProgress);
+
+// =====================
