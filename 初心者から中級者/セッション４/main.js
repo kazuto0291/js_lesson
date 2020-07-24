@@ -1,12 +1,36 @@
-function addNumberFactory(num) {
-  function addNumber(value) {
-    return num + value;
-  }
-  return addNumber;
+function a() {
+  console.log('called');
 }
 
-const add5 = addNumberFactory(5);
-const add10 = addNumberFactory(10);
-console.log(add5);
-const result = add5(10);
-console.log(result);
+a();
+
+let c = (function() {
+  console.log('called');
+  let privateVal = 0;
+  let publicVal = 10;
+
+  function privateFn() {
+    console.log('privateFn is called');
+  }
+
+  function publicFn() {
+    console.log('publicFn is called:' + privateVal++);
+  }
+  return {
+    publicVal: publicVal,
+    publicFn: publicFn
+  };
+})();
+
+c.publicFn();
+c.publicFn();
+c.publicFn();
+c.publicFn();
+c.publicFn();
+c.publicFn();
+
+console.log(c.publicVal);
+
+let b = function() {
+  console.log('called');
+}();
