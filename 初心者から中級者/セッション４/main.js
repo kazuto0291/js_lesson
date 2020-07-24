@@ -1,17 +1,18 @@
-function a() {
-  let b = 0;
-  console.log(b);
-}
+function incrementFactory() {
 
-a();
+  let num = 0;
 
-if (true) {
-  var c =1;
-
-  var d = function() {
-    console.log('d is called');
+  function increment() {
+    num = num + 1;
+    console.log(num);
   }
   d();
+  return increment;
 }
-console.log(c);
-d();
+
+const increment = incrementFactory();
+
+increment();
+increment();
+increment();
+increment();
