@@ -1,18 +1,12 @@
-function incrementFactory() {
-
-  let num = 0;
-
-  function increment() {
-    num = num + 1;
-    console.log(num);
+function addNumberFactory(num) {
+  function addNumber(value) {
+    return num + value;
   }
-  d();
-  return increment;
+  return addNumber;
 }
 
-const increment = incrementFactory();
-
-increment();
-increment();
-increment();
-increment();
+const add5 = addNumberFactory(5);
+const add10 = addNumberFactory(10);
+console.log(add5);
+const result = add5(10);
+console.log(result);
