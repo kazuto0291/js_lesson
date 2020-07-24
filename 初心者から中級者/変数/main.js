@@ -1,23 +1,16 @@
-function printTypeAndValue(val) {
-  console.log(typeof val, val)
+function hello(name) {
+  // if (!name) {
+  //   name = 'Tom'
+  // }
+  name = name || 'Tom';
+  console.log(`hello ${name}`);
 }
 
-let a = 0;
+hello('Bob');
 
-printTypeAndValue(a);
+let name = 'Bob';
+if (name) {
+  hello(name);
+}
 
-let b = '1' + a;
-
-printTypeAndValue(b);
-
-let c = 15 - b;
-
-printTypeAndValue(c);
-
-let d = c - null;
-
-printTypeAndValue(d);
-
-let e = d - true;
-
-printTypeAndValue(e);
+name && hello(name);
