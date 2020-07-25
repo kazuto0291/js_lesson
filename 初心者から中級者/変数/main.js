@@ -1,15 +1,16 @@
-const a = {
-  prop: 0
+function hello(name) {
+  console.log(`hello, ${name}`);
 }
 
-const b = {
-  prop: 0
+function bye() {
+  console.log('bye');
 }
 
-console.log(a === b);
+function fn(cb) {
+  cb('Tom');
+}
 
-console.log(a.prop === b.prop);
+fn(hello);
+fn(bye);
 
-const c = a ;
-
-console.log(a === c);
+setTimeout(hello, 2000);
