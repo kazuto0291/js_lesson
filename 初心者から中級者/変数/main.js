@@ -1,16 +1,9 @@
-function hello(name) {
-  console.log(`hello, ${name}`);
+const person = {
+  name: 'Tom',
+  hello: function() {
+    console.log(`hello ${this.name}`);
+  }
 }
+person.hello();
 
-function bye() {
-  console.log('bye');
-}
-
-function fn(cb) {
-  cb('Tom');
-}
-
-fn(hello);
-fn(bye);
-
-setTimeout(hello, 2000);
+let d = 'tomato'
