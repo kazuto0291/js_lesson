@@ -1,26 +1,34 @@
-window.name ='John'
+window.name = 'John';
 
 const person = {
   name: 'Tom',
   hello: function() {
-    console.log(`Hello ${this.name}`);
-    a();
-    const person = {
-      name: 'Beth',
-      hello: function() {
-        console.log(`Hello ${this.name}`);
-        a();
-        
-      }
-    }
-    person.hello();
+    console.log(`hello ${this.name}`);
   }
 }
 
-// const ref = person.hello;
-// ref();
 person.hello();
+
+const helloTom = person.hello.bind(person);
+
+function fn(ref) {
+  ref();
+}
+
+fn(helloTom);
 
 function a() {
   console.log(`hello ${this.name}`);
 }
+
+const b = a.bind({name: 'Tamama'});
+
+b();
+
+
+function c(name) {
+  console.log(`hello ${name}`);
+}
+
+const d = c.bind(null, 'SARADA');
+d('Tom');
