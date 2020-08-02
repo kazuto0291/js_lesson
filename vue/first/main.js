@@ -2,7 +2,8 @@ new Vue({
   el: '#app',
   data() {
     return {
-      url: 'https://google.com'
+      url: 'https://google.com',
+      message: ''
     }
   },
   methods: {
@@ -11,6 +12,9 @@ new Vue({
     },
     clickButton() {
       alert('クリック!⚠');
+    },
+    inputValue(event) {
+      this.message = event.target.value;
     }
   }
 })

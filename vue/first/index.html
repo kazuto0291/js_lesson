@@ -9,10 +9,21 @@
   <div id="app">
     <h1>ディレクティブ</h1>
     <a v-bind:href="url">{{url}} </a>
-    <br><a :href="url">{{url}} </a>
+    <br>
+    <a :href="url">{{url}} </a>
     <button v-on:click="clickButton">ボタン</button>
-    <br><button @click="clickButton">ボタン</button>
+    <br>
+    <button @click="clickButton">ボタン</button>
     <h2>{{ showDate()}}</h2>
+    <h1>v-model</h1>
+    <input v-model="message">
+    <p>入力内容：{{ message }}</p>
+    <h1>v-modelを使わずmethodで更新する方法</h1>
+    <input @input="inputValue">
+    <p>入力内容：{{ message }}</p>
+    <h1>v-modelを使わずHTML内でフォーム入力を行う</h1>
+    <input @input="message = $event.target.value">
+    <p>入力内容：{{ message }}</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
