@@ -3,7 +3,8 @@ new Vue({
   data() {
     return {
       text1: '',
-      text2: ''
+      text2: '',
+      text3: ''
     }
   },
   computed: {
