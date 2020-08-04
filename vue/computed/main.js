@@ -17,6 +17,12 @@ new Vue({
       return this.text1.charAt(0).toUpperCase() + this.text1.slice(1);
     }
   },
+  watch: {
+    text3(newValue, oldValue) {
+      console.log('newValue : ', newValue);
+      console.log('oldValue : ', oldValue);
+    }
+  },
   methods: {
     capitalizeText2() {
       console.log('methods.');
