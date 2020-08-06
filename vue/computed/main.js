@@ -4,7 +4,8 @@ new Vue({
     return {
       text1: '',
       text2: '',
-      text3: ''
+      text3: '',
+      count: 1,
     }
   },
   computed: {
@@ -31,6 +32,9 @@ new Vue({
       }
 
       return this.text2.charAt(0).toUpperCase() + this.text2.slice(1);
+    },
+    increment() {
+      this.count++;
     }
   }
 })
