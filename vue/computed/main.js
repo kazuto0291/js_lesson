@@ -6,6 +6,24 @@ new Vue({
       text2: '',
       text3: '',
       count: 1,
+      tweets: [
+        {
+          user: 'スズキ',
+          text: 'おはよう'
+        },
+        {
+          user: 'タカハシ',
+          text: 'こんにちは'
+        },
+        {
+          user: 'コイズミ',
+          text: 'こんばんは'
+        },
+        {
+          user: 'マルコス・アロンソ',
+          text: 'おはよう御座います'
+        },
+      ]
     }
   },
   computed: {

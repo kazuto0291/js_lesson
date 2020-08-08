@@ -25,6 +25,14 @@
     <hr>
     <p v-show="count % 2 === 0">偶数時に表示</p>
     <hr>
+
+    <h2>配列に対するv-for</h2>
+    <ul>
+      <li v-for="(tweet, index) in tweets"
+          :key>
+        {{ tweet.user}} : {{tweet.text}}
+      </li>
+    </ul>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
