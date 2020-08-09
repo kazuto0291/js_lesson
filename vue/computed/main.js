@@ -1,3 +1,18 @@
+Vue.component('button-counter', {
+  data() {
+    return {
+      count: 0
+    };
+  },
+  template:`
+  <div>
+    <p>カウント；{{ count }} </p>
+    <button @click="count++">インクリメント</button>
+  </div>
+  `
+});
+
+
 new Vue({
   el: '#app',
   data() {
@@ -31,6 +46,18 @@ new Vue({
       }
     }
   },
+  created() {
+    console.log('created!');
+  },
+  mounted() {
+    console.log('mounted!!');
+  },
+  updated() {
+    console.log('updated!!');
+  },
+  destroyed() {
+    console.log('destroyed!!');
+  },
   computed: {
     capitalizedText1() {
       console.log('computed.');
@@ -58,6 +85,9 @@ new Vue({
     },
     increment() {
       this.count++;
+    },
+    destroy() {
+      this.$destroy();
     }
   }
 })

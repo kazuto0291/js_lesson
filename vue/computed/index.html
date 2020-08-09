@@ -42,9 +42,18 @@
       {{ key }} : {{ value}}
       </li>
     </ul>
+    <button-counter></button-counter>
+    <hr>
+    <button-counter></button-counter>
+    <hr>
+    <p>カウント；{{ count }} </p>
+    <button @click="count++">インクリメント</button>
+    <button @click="destroy">インスタンス削除</button>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="main.js"></script>
+  <script src="con.js"></script>
 </body>
 </html>
