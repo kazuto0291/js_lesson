@@ -33,6 +33,15 @@
         {{ tweet.user}} : {{tweet.text}}
       </li>
     </ul>
+
+    <h2>オブジェクトに対するv-for</h2>
+    <ul>
+      <li v-for="(value, key) in article"
+      :key="key"
+      >
+      {{ key }} : {{ value}}
+      </li>
+    </ul>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

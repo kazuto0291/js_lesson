@@ -23,7 +23,12 @@ new Vue({
           user: 'マルコス・アロンソ',
           text: 'おはよう御座います'
         },
-      ]
+      ],
+      article: {
+        user: 'ボブ',
+        text: 'Hello World',
+        date: new Date().toDateString()
+      }
     }
   },
   computed: {
