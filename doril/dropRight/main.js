@@ -1,4 +1,21 @@
 
+function dropRight(array, size = 1) {
+  if (size === 0) {
+    return [...array];
+  }
+  if (array.length <= size) {
+    return [];
+  }
+
+  const droppdedArray = [];
+  for(let i = 0; i < array.length - size; i++) {
+    droppdedArray.push( array[i] );
+  }
+
+  return droppdedArray;
+}
+
+const numbers = [1, 2, 4, 3, 5, 6, 7,]
 
 const result1 = dropRight(numbers);
 console.log(result1, numbers);
