@@ -1,5 +1,15 @@
-function takeWhile() {
+function takeWhile(array, predicate) {
+  const takenValues = [];
+  for(let i = 0; i < array.length; i++) {
+    const value = array[i];
+    if( !predicate(value, i, array) ) {
+      break;
+    }
 
+    takenValues.push(value);
+  }
+
+  return takenValues;
 }
 
 const users = [
