@@ -1,5 +1,9 @@
-function pullAll() {
-
+function pullAll(array,valuse) {
+  for(let i = array.length -1; 0 <= i; i--) {
+    if( valuse.includes( array[i]) ) {
+      array.splice(i, 1);
+    }
+  }
 }
 
 
