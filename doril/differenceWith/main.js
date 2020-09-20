@@ -1,5 +1,18 @@
-function differenceWith() {
+function differenceWith(targets, comparisons, compartor) {
+  const diffValues = [];
 
+  for(let i =0; i < targets.length; i++) {
+    const target = targets[i];
+    for(let j = 0; j < comparisons.length; j++) {
+      const comparison = comparisons[j];
+      console.log('comparison', comparison)
+      if( !compartor(target, comparison) ) {
+        diffValues.push();
+      }
+    }
+  }
+
+  return diffValues;
 }
 
 
