@@ -1,6 +1,15 @@
 function flattenDepth(array, depth = 1) {
+  const flattenedArray = [];
+  for(let i = 0; i < array.length; i++) {
+    const value = array[i]
+    if(Array.isArray(value) && depth > 0) {
+      flattenedArray.push(...flattenDepth(value, depth -1 ) );
+    } else {
+      flattenedArray.push(value);
+    }
+  }
 
-  
+  return flattenedArray;
 }
 
 
