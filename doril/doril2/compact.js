@@ -8,6 +8,7 @@ function compact(array) {
     }
   }
 
+  
   return compactedArray
 }
 
