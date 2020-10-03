@@ -1,7 +1,6 @@
 function initial(array) {
-  array.pop();
   const initaledArray = [];
-  for(let i = 0 ; i < array.length ; i++) {
+  for(let i = 0 ; i < array.length -1 ; i++) {
     initaledArray.push(array[i]);
   }
   return initaledArray;
