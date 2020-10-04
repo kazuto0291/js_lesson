@@ -1,7 +1,14 @@
-function dropwhile(array, predicate) {
+function dropWhile(array, predicate) {
   const dropedArray = [...array];
 
-  
+  for(let i = 0; i <= array.length ; i++) {
+    const value = array[i];
+    if( !predicate(value)) {
+      break
+    }
+    dropedArray.shift();
+  }
+  return dropedArray;
 }
 
 
