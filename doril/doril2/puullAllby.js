@@ -1,16 +1,16 @@
 function pullAllBy(array, values, iteratee) {
   
-  for(let i = array.length - 1; 0 <= i; i--) {
-    const target = array[i];
-    console.log(target, '@@@@')
-    for(let j = 0; j < values.length; j++) {
-      const value = values[j];
-      console.log('value:', value);
-      if( iteratee(target) === iteratee(value) ) {
-        array.slice(i, 1);
-      }
+  const iteratedValues = values.map(value => {
+    return iteratee(value)
+  });
+
+  for(let i = array.length -1 ; 0 <= i; i--) {
+    const iteratedTarget = iteratee(array[i]);
+    if( iteratedValues.includes(iteratedTarget) ) {
+      array.splice(i, 1);
     }
   }
+
   return array
 }
 
