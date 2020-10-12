@@ -13,6 +13,14 @@ function intersectionBy(...arraysWithIterateeAtLast) {
     });
     console.log(iteratedArrays);
 
+    for(let i = 0; i < headArray.length; i++) {
+      const currentValue = headArray[i];
+      const iteratedCurrentValue = iteratee(currentValue);
+      if(iteratedArrays.every(array => array.includes(iteratedCurrentValue))) {
+        intersctedValue.push(currentValue);
+      }
+
+    }
 
     return intersctedValue;
 }
