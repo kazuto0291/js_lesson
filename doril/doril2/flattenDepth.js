@@ -1,5 +1,18 @@
-function flattenDepth() {
-  
+function flattenDepth(array, n = 1)  {
+  if(n === 0 ) {
+    return [...array];
+  }
+
+  const depthArray = [];
+  for(let i = 0 ; i < array.length; i++) {
+    const value =array[i];
+    if(Array.isArray(value) && n > 0) {
+      depthArray.push(...flattenDepth(value, n - 1 ));
+    } else {
+      depthArray.push(value);
+    }
+  }
+  return depthArray;
 }
 
 const array = [1, [2, [3, [4]], 5]];
