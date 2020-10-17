@@ -3,8 +3,10 @@ function reverse(array) {
   const maxindexForLoop = Math.floor(array.length / 2);
   for(let i = 0; i < maxindexForLoop; i++) {
     const opositeIndex = array.length -(1 + i);
-    
+    [array[i], array[opositeIndex]] = [array[opositeIndex], array[i]]
   }
+
+  return array;
 }
 
 const array = [1, 2, 3];
