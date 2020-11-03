@@ -31,9 +31,9 @@
 
 
 const func = function(callback){
-  callback()
+  callback('message')
 }
 
-func(() => {
-  console.log('collback本体')
+func((msg) => {
+  console.log(msg)
 });
