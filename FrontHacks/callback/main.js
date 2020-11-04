@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // console.log(1);
 
@@ -37,3 +37,29 @@ const func = function(callback){
 func((msg) => {
   console.log(msg)
 });
+
+let num = 0;
+const logo =document.getElementById('logo');
+const onClick = () => {
+  console.log('クリックされた　in onClock関数！')
+  for(let i = 0; i <= 100; i++) {
+
+   if (num % 15 === 0) {
+      console.log('fizubuzu')
+    } else if(num % 3 ===0) {
+      console.log('fizu')
+    } else if (num % 5 === 0 ) {
+      console.log('buzu')
+    } else {
+      console.log(num)
+    }
+    num++;
+  }
+};
+
+// logo.addEventListener('click', () => {
+//   console.log('クリックされた！')
+// })
+
+logo.addEventListener('click', onClick);
+
