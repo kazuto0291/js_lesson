@@ -39,7 +39,7 @@ func((msg) => {
 });
 
 let num = 0;
-const logo =document.getElementById('logo');
+// const logo = document.getElementById('logo');
 const onClick = () => {
   console.log('クリックされた　in onClock関数！')
   for(let i = 0; i <= 100; i++) {
@@ -61,5 +61,25 @@ const onClick = () => {
 //   console.log('クリックされた！')
 // })
 
-logo.addEventListener('click', onClick);
+// logo.addEventListener('click', onClick);
 
+
+// console.log('1111111')
+// setTimeout(()=> {
+//   console.log('settimeoutの中')
+// }, 1000);
+
+// console.log('222222')
+
+const promise = new Promise((resolve, reject) => {
+
+  setTimeout(()=> {
+    console.log('settimeout')
+    resolve('dada');
+  },2000);
+});
+
+promise.then((data) => {
+  console.log('thenのなか');
+  console.log('date', data)
+})
