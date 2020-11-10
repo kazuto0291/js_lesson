@@ -17,3 +17,11 @@ console.log(copiedArray)
 
 const copiedArray2 = [...hobbies];
 console.log(copiedArray2);
+
+const copiedOb = {...person};
+console.log(copiedOb);
+
+const toArray = (...args) => {
+  return args
+}
+console.log(toArray(1,2,3,4,5,6,7,8,9))
