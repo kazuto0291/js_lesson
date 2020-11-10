@@ -12,10 +12,14 @@ const printName = ({ name }) => {
 
 printName(person);
 
+const { name, age } = person;
+console.log(name, age);
 // console.log(person)
 // person.greet();
 
 const hobbies = ['Sports', 'Cooking', 'programing', 'english'];
+const [hobby1, hobby2] = hobbies;
+console.log(hobby1, hobby2);
 // for (let hobby of hobbies) {
 //   console.log(hobby);
 // }
