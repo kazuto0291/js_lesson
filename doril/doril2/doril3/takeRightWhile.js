@@ -1,5 +1,15 @@
-function takeRightWhile() {
-  
+function takeRightWhile(array, predicate) {
+  const newArray = []
+
+  for(let i = array.length -1 ; 0 <= i ; i--) {
+    const value = array[i];
+    if(!predicate(value)) {
+      break;
+    }
+    newArray.unshift(value)
+  }
+
+  return newArray
 }
 
 const users = [
