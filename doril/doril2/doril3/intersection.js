@@ -1,7 +1,15 @@
 function intersection(...arrays) {
   const newArray = [];
-
-
+  
+  const headArray = arrays.shift()
+  for(let i = 0; i < headArray.length; i++) {
+    const current = headArray[i];
+    
+    if(arrays.every((array) => array.includes(current))) {
+      newArray.push(current);
+    }
+  }
+  return newArray;
 }
 
 
