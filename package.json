@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kazuto0291/js_lesson/issues"
   },
-  "homepage": "https://github.com/kazuto0291/js_lesson#readme"
+  "homepage": "https://github.com/kazuto0291/js_lesson#readme",
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
 }
