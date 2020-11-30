@@ -61,13 +61,13 @@ MongoClient.connect(url,(error,client)=> {
   // })
 
   // コレクション値を削除
-  db.collection("products", (error, collection) => {
-    collection.deleteMany(
-      { name: /p/g },
-      (error, results) => {
-        client.close();
-      }
-    )
-  })
+  // db.collection("products", (error, collection) => {
+  //   collection.deleteMany(
+  //     { name: /p/g },
+  //     (error, results) => {
+  //       client.close();
+  //     }
+  //   )
+  // })
 
 });
