@@ -38,3 +38,4 @@ console.log('result : ', result);
 
 console.log('array : ', array);
 // => [{ 'x': 1, 'y': 2 }, { 'x': 5, 'y': 6 }]
+
