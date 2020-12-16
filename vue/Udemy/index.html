@@ -1,9 +1,28 @@
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="vue.js"></script>
 
 <div id="app">
-  <p>{{message}}</p>
+  <p v-once>{{message}}</p>
+  <p>{{ number + number}}</p>
+  <p>{{ ok ? "yes" : 'no' }}</p>
+  <p>{{ sayhi() }}</p>
+  <a v-text="message"></a>
+  <div>{{ html }} </div>
+  <div v-html="html"> </div>
+
   <button v-on:click="reverseMessage">メッセージ反転</button>
 </div>
 
 
 <Script src="main.js"></Script>
+</body>
+</html>
+
+
