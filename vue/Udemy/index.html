@@ -16,7 +16,10 @@
   <a v-text="message"></a>
   <div>{{ html }} </div>
   <div v-html="html"> </div>
-
+  <a :[attribute]="url">google</a>
+  <a :href="urlTwitter" :id="number">tweeter</a>
+  <a v-bind="{href: urlTwitter, id: number}">tweeter2</a>
+  <a v-bind="twitterObject">tweeter3</a>
   <button v-on:click="reverseMessage">メッセージ反転</button>
 </div>
 
