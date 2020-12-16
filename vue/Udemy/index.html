@@ -21,6 +21,12 @@
   <a v-bind="{href: urlTwitter, id: number}">tweeter2</a>
   <a v-bind="twitterObject">tweeter3</a>
   <button v-on:click="reverseMessage">メッセージ反転</button>
+  <p>現在{{ number }}回クリックされています。</p>
+  <button v-on:click="number += 1">カウントアップ</button>
+  <p>現在{{ number2}}回クリックされています。 </p>
+  <button v-on:click="countUp">カウント</button>
+  <p v-on:mousemove="changeMousePosition">マウスを載せてください</p>
+  <p>X:{{x}}, Y:{{y}} </p>
 </div>
 
 
