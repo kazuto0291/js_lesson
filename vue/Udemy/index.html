@@ -24,8 +24,10 @@
   <p>現在{{ number }}回クリックされています。</p>
   <button v-on:click="number += 1">カウントアップ</button>
   <p>現在{{ number2}}回クリックされています。 </p>
-  <button v-on:click="countUp">カウント</button>
-  <p v-on:mousemove="changeMousePosition">マウスを載せてください</p>
+  <button v-on:click="countUp(3)">カウント</button>
+  <p v-on:mousemove="changeMousePosition(3, $event)">マウスを載せてください
+    <span v-on:mousemove="noEvent">反応しないでください</span>
+  </p>
   <p>X:{{x}}, Y:{{y}} </p>
 </div>
 

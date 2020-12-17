@@ -19,20 +19,24 @@ new Vue({
   },
   methods: {
     reverseMessage: function() {
+      console.log(message)
       this.message =this.message.split('').reverse().join('')
     },
     sayhi: function(){
       this.message = " Hello Vuejs"
       return this.message;
     },
-    countUp: function() {
-      this.number2 += 2
+    countUp: function(time) {
+      this.number2 += 2 *time
     },
     // メソッドの引数にeventとすることでイベントオブジェクトが取得できる
-    changeMousePosition: function(event) {
+    changeMousePosition: function(divideNumber,event) {
       console.log(event)
-      this.x= event.clientX
-      this.y= event.clientY
+      this.x= event.clientX / divideNumber
+      this.y= event.clientY /divideNumber
+    },
+    noEvent: function(event) {
+      event.stopPropagation()
     }
   }
 })
