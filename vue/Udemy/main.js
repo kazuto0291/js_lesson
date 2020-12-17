@@ -36,6 +36,7 @@ new Vue({
       this.y= event.clientY /divideNumber
     },
     noEvent: function(event) {
+      event.preventDefault();
       event.stopPropagation()
     }
   }
