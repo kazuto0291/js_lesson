@@ -3,6 +3,7 @@ new Vue({
   el:'#app',
   data: {
     message: "HElloWorld",
+    message1: "HElloWorld",
     number: 3,
     ok: false,
     html: '<h1>h1です</h1>',
@@ -19,12 +20,12 @@ new Vue({
   },
   methods: {
     reverseMessage: function() {
-      console.log(message)
+      // console.log(this.message)
       this.message =this.message.split('').reverse().join('')
     },
     sayhi: function(){
-      this.message = " Hello Vuejs"
-      return this.message;
+      this.message1 = " Hello Vuejs"
+      return this.message1;
     },
     countUp: function(time) {
       this.number2 += 2 *time
@@ -38,6 +39,9 @@ new Vue({
     noEvent: function(event) {
       event.preventDefault();
       event.stopPropagation()
+    }
+    ,myAlert(){
+      alert('アラート')
     }
   }
 })
