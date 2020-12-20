@@ -31,6 +31,9 @@
   <p>X:{{x}}, Y:{{y}} </p>
   <a v-on:click.prevent.stop href="https://google.com">google</a>
   <input type="text" v-on:keyup.enter.space="myAlert">
+
+  <p>現在{{ number2}}回クリックされています。 </p>
+  <button @click="countUp(2)">カウントアップ</button>
 </div>
 
 
