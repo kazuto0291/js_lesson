@@ -11,6 +11,10 @@
   <div id="app">
     <input type="text" v-model='message'>
     <h1>{{message}} </h1>
+    <p>{{counter}}</p>
+    <button @click="counter += 1">+1</button>
+    <p>{{ counter > 3 ? '3より上' : '3以下'}}</p>
+    <P>{{ lessThanThree }}</P>
   </div>
   <script src="main.js"></script>
 </body>
