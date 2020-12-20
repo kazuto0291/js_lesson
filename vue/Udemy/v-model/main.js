@@ -11,7 +11,7 @@ new Vue({
       return this.counter > 3 ? '3より上' : '3以下'
     }
   },
-  //watchでは 非同期の処理をよくする
+  //watchでは 非同期の処理をよくする,非同期だとreturnが使えない,returnは同期処理
   watch: {
     counter: function() {
       const vm = this;
