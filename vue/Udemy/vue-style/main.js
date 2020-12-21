@@ -1,7 +1,9 @@
 new Vue({
   el: '#app',
   data: {
-    isActive: true
+    isActive: true,
+    color: 'green',
+    bg: 'bg-tomato'
   },
   computed: {
     classObject: function() {
