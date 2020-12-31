@@ -1,14 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="app.css">
+
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://kit.fontawesome.com/6ad8112954.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
-  
+  <div id="app">
+    <section class="carousel">
+
+      <div class="carousel__main">
+        <transition nmae="active">
+          <div class="carousel__main"
+            :key="images[active].id"
+            v-show="active === images[active].id"
+          >
+            <img :src="images[active].img">
+          </div>
+        </transition>
+      </div>
+      <div @click="prev" class="carousel__prev"><i class="fas fa-angle-left fa-5x"></i></div>
+      <div @click="next" class="carousel__next"><i class="fas fa-angle-right fa-5x"></i></div>
+      <ul class="carousel__thumbnails">
+        <li v-for="(image, id) in images"
+            :key = image.id
+            :class="{current: active === image.id}"
+            @click="current(image.id)">
+          <img :src="image.img" >
+          </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    let app = new Vue({
+      el:"#app",
+      data() {
+        return {
+          // 現在何番目の画像の状態を持たせるため
+          active: 0,
+          images: [
+            {id:0 , img:'./0002.jpg'},
+            {id:1 , img:'./0003.jpg'},
+            {id:2 , img:'./0004.jpg'},
+            {id:3 , img:'./0005.jpg'},
+            {id:4 , img:'./0006.jpg'},
+          ]
+        }
+      },
+      methods: {
+        current(id){
+          // クリックしたらactiveをクリックした画像のid値にする
+          this.active = id
+        },
+        prev(){
+          // データの中のactiveを０−４の間で減らし０以下なら一番最後にする
+          if (this.active <= 0) {
+            this.active = this.images.length -1
+          } else {
+            this.active--
+          }
+        },
+        next(){
+          // データの中のactiveの値が０−４まで変わって４より大きなら０に戻る
+          if (this.active >= this.images.length -1) {
+            this.active = 0;
+          } else {
+            this.active++;
+          }
+        }
+      },
+      mounted(){
+        // setIntervalの中のthisの挙動が変わるので変数で置く
+        let that = this
+        // 4秒おきに実行したい
+        setInterval(() => {
+          that.next();
+        }, 4000)
+      }
+    })
+  </script>
 </body>
 </html>
