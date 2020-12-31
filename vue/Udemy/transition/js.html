@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .target{
+      transition: opacity 1s;
+    }
+    .target.is-hiden{
+      opacity: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <button id="is-show">JS表示/非表示</button>
+  <div id="target" class="target">JS表示されています。</div>
+
+  <script>
+    const isShow = document.getElementById('is-show');
+    const target = document.getElementById('target');
+
+    isShow.addEventListener('click', () => {
+      target.classList.toggle('is-hiden');
+    })
+  </script>
+</body>
+</html>
