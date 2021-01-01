@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    <input :value="test" type="text" @input="test = $event.target.value">
+    <p>{{test}}</p>
+    <br>
+    <input @input="checkEvent">
+
+    <p v-if="errors.length">
+      <ul>
+        <li class="error" v-for="error in errors" style="color: red;">{{error}}</li>
+      </ul>
+    </p>
+    <form @submit.prevent="validate" >
+      <label for="name">氏名</label>
+      <input type="text" id="name" v-model="contact.yourName">
+      <br>
+      <label for="tel">電話番号</label>
+      <input id="tel" type="tel" v-model="contact.tel.number">
+      <br>
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" v-model="contact.email.lazy">
+      <br>
+      <span>性別</span>
+      <input type="radio" value="male" v-model="contact.gender">男性
+      <input type="radio" value="female" v-model="contact.gender">女性
+      <input type="radio" value="other" v-model="contact.gender">その他
+      <br>
+      <select v-model="contact.age">
+        <option disabled value="">年齢を選択してください</option>
+        <option >10代</option>
+        <option >20代</option>
+        <option >30代</option>
+        <option >40代以上</option>
+      </select>
+      <br>
+      メッセージ
+      <textarea v-model="contact.message"></textarea>
+      <br>
+      このサイトを知った理由
+      <input type="checkbox" value="webサイト" v-model="contact.attracts">webサイト
+      <input type="checkbox" value="チラシ" v-model="contact.attracts">チラシ
+      <input type="checkbox" value="その他" v-model="contact.attracts">その他
+      <br>
+      注意事項に同意する
+      <input type="checkbox" v-model="contact.caution">
+      <br>
+      <input type="submit" value="送信">
+    </form>
+  </div>
+
+  <script>
+    let app = new Vue({
+      el:'#app',
+      data(){
+        return {
+          test:'ああああ',
+          contact: {
+            yourName: '',
+            tel: '',
+            email: '',
+            gender: '',
+            age: '',
+            message: '',
+            attracts: [],
+            caution: false
+          },
+          errors: []
+        }
+      },
+      methods: {
+        checkEvent(e){
+          console.log(e)
+        },
+        validate() {
+          // 初期化
+          this.errors =[]
+          if(!this.contact.yourName) {
+            this.errors.push('氏名は必須です')
+          } else if (this.contact.yourName > 20) {
+            this.errors.push('氏名は20文字以内で入力してください')
+          }
+          if (!this.contact.genter) {
+            this.errors.push('性別を選択してください')
+          }
+          if (!this.contact.caution) {
+            this.errors.push('注意事項にチェックを入れてください')
+          }
+          if(!this.errors.length) {
+            console.log('送信可能です')
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
