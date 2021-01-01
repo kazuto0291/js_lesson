@@ -14,7 +14,17 @@
 
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
   <script>
-    
+    // window.addEventListener('resize', () => {
+    //   console.log('リサイズしたよ')
+    // })
+
+    window.addEventListener('resize', _.debounce(()=> {
+      console.log('debounceでリサイズ')
+    },3000))
+
+    window.addEventListener('resize', _.throttle(()=> {
+      console.log('throttleでリサイズ')
+    },3000))
 
     let app = new Vue({
       el:'#app',
