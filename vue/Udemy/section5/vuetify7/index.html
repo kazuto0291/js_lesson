@@ -6,26 +6,49 @@
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <style>
-    .red-b{
-      border: red 1px solid;
-    }
-    .blue-b{
-      border: blue 1px solid;
+    [v-closk]{
+      display: none;
     }
   </style>
 </head>
 <body>
   <div id="app">
-    <v-app>
+    <v-app v-cloak>
       <v-app-bar app>
         ヘッダー
       </v-app-bar>
       <v-main>
         <v-container fluid>
-          <v-row class="blue-b">
-            <v-col class="my-5 red-b" cols="12" md="4">test1</v-col>
-            <v-col cols="12" md="4">test2</v-col>
-            <v-col cols="12" md="4">test3</v-col>
+          <v-row>
+            <v-col
+              v-for="(dogType, index) in dogTypes"
+              :key="index"
+              cols="6"
+              md="4"
+            >
+            <v-btn
+              color="cyan"
+              dark
+              @click.prevent="fetchDogImage(index)"
+              >
+            {{dogType}}
+            </v-btn>
+            </v-col>
+          </v-row>
+
+          <v-row v-show="isShow">
+            <v-col
+              v-for="dogImage in dogImages"
+              :key ="dogImage"
+              cols="12" sm="6" md="4"
+            >
+              <v-card>
+                <v-img
+                  :src="dogImage"
+                ></v-img>
+              </v-card>
+
+            </v-col>
           </v-row>
         </v-container>
       </v-main>
@@ -37,10 +60,42 @@
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
   <script>
     new Vue({
       el: '#app',
       vuetify: new Vuetify(),
+      data() {
+        return {
+          dogTypes:['akita', 'beagel', 'pekinese', 'pug', 'shiba', 'papillon'],
+          dogUrl:'',
+          dogImages: '',
+          isShow: false,
+        }
+      },
+      methods: {
+        async fetchDogImage(index) {
+          const that = this
+          this.dogUrl = `https://dog.ceo/api/breed/${this.dogTypes[index]}/images`;
+          const response = await fetch(this.dogUrl, {method: 'get'})
+            .then( response => {
+              if (response.ok) {
+                that.isShow = true
+                return response.json()
+              }
+              throw new Error('error')
+              .chatch(e => console.log(e.mesaage))
+            })
+            this.render(response)
+        },
+        render(response) {
+          if(response.message.length > 20) {
+            this.dogImages = _(response.message).shuffle().slice(0, 20).value()
+          } else {
+            this.dogImages = _.shuffle(response.message)
+          }
+        }
+      }
     })
   </script>
 </body>
