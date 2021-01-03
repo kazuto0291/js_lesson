@@ -18,5 +18,9 @@
   "homepage": "https://github.com/kazuto0291/js_lesson#readme",
   "dependencies": {
     "mongodb": "^3.6.3"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0"
   }
 }
