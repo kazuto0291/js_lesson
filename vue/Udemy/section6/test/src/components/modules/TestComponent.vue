@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <div class="red-b">
+    <div class="border__blue">
+      SCSSのテストです。
+    </div>
+    <div class="background__primary">
+      ScSSのグローバルのテスト
+    </div>
     テストです。
     {{ testData }}
   </div>
@@ -16,6 +22,8 @@ export default {
 }
 </script>
 
-<style>
+<style scpoed lang='sass'>
+
+
 
 </style>

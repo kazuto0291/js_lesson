@@ -1,3 +1,10 @@
 module.exports = {
-  publicPath: '';
+  publicPath:'',
+  css: {
+    loaderOptions: {
+      sass: {
+        additionalData: `@import "@/assets/sass/main.scss"`
+      },
+    }
+  }
 }
