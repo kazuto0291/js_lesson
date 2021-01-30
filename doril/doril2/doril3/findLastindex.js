@@ -1,5 +1,11 @@
-function findLastIndex() {
-  
+function findLastIndex(array, predicate, fromIndex = array.length -1) {
+  for (let i =  fromIndex; 0 < i; i--) {
+    const value = array[i];
+    if (predicate(value)) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 
@@ -27,4 +33,8 @@ const result3 = findLastIndex(users, function(o) {
   return o.user === 'john';
 });
 console.log(result3);
-// => 2
+
+const result4 = findLastIndex(users, function(o) {
+  return o.user === 'jo';
+});
+console.log(result4);
