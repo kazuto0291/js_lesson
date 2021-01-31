@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   computed: {
@@ -29,12 +29,16 @@ export default {
     ...mapState([
       'todos'
     ]),
-    completedTodos() {
-      return this.$store.getters.completedTodos;
-    },
-    completedTodosCount() {
-      return this.$store.getters.completedTodosCount;
-    }
+    // completedTodos() {
+    //   return this.$store.getters.completedTodos;
+    // },
+    // completedTodosCount() {
+    //   return this.$store.getters.completedTodosCount;
+    // },
+    ...mapGetters([
+      'completedTodos',
+      'completedTodosCount'
+    ])
   }
 }
 </script>
@@ -59,5 +63,9 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+ul {
+  list-style: none;
 }
 </style>
