@@ -1,14 +1,11 @@
 <template>
   <div id="app">
     <h1>App.Todo</h1>
+    <hr>
+    <h2>完了済みTodo：{{ completedTodosCount }}件</h2>
     <ul>
       <li
-        v-for="todo in todos"
-        :key="todo.id"
-      >{{ todo.title }} ({{ todo.completed ? '完了' : '未完了' }})
-      </li>
-      <li
-        v-for="todo in todos"
+        v-for="todo in completedTodos"
         :key="todo.id"
       >{{ todo.title }} ({{ todo.completed ? '完了' : '未完了' }})
       </li>
@@ -31,7 +28,13 @@ export default {
     // },
     ...mapState([
       'todos'
-    ])
+    ]),
+    completedTodos() {
+      return this.$store.getters.completedTodos;
+    },
+    completedTodosCount() {
+      return this.$store.getters.completedTodosCount;
+    }
   }
 }
 </script>
