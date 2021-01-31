@@ -1,12 +1,11 @@
 function join(array, separator = ',') {
-  const copyiedArray = [...array];
+  const copiedArray = [...array];
 
-  let joinedString = copyiedArray.shift();
-  console.log(joinedString)
-  for (let i = 0; i < copyiedArray.length; i++) {
-    joinedString += separator + copyiedArray[i];
+  let joinedSting = copiedArray.shift();
+  for (let i = 0; i < copiedArray.length; i++) {
+    joinedSting += separator + copiedArray[i];
   }
-  return joinedString
+  return joinedSting;
 }
 
 
