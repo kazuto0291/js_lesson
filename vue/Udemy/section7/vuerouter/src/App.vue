@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <h1>App.vue</h1>
+    <h1>App.Todo</h1>
     <ul>
+      <li
+        v-for="todo in todos"
+        :key="todo.id"
+      >{{ todo.title }} ({{ todo.completed ? '完了' : '未完了' }})
+      </li>
       <li
         v-for="todo in todos"
         :key="todo.id"
@@ -17,11 +22,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   computed: {
-    todos() {
-      return this.$store.state.todos;
-    }
+    // todos() {
+    //   return this.$store.state.todos;
+    // },
+    ...mapState([
+      'todos'
+    ])
   }
 }
 </script>
