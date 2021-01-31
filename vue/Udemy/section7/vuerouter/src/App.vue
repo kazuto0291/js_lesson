@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <h1>App.vue</h1>
+    <ul>
+      <li
+        v-for="todo in todos"
+        :key="todo.id"
+      >{{ todo.title }} ({{ todo.completed ? '完了' : '未完了' }})
+      </li>
+    </ul>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -7,6 +15,16 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    todos() {
+      return this.$store.state.todos;
+    }
+  }
+}
+</script>
 
 <style>
 #app {
