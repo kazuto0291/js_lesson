@@ -1,11 +1,36 @@
 AWSTemplateFormatVersion: 2010-09-09
+Description: ---
+Metadata: 
+
+Parameters: 
+
+Mappings: 
+
+Conditions: 
+
 Resources: 
-  myVPC:
+  myVPC2:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.0.8.0/21
       EnableDnsSupport: true
       Tags:
-        - Key: Name
-          Value: MyVPC2fromCF
+        - Key: keyname
+          Value: value
+  myEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      KeyName: 
+      DisableApiTermination: 
+      ImageId: 
+      InstanceType: 
+      Monitoring: true|false
+      SecurityGroupIds:
+        - sg-id
+      UserData: !Base64 |
+        #!/bin/bash -ex
+        # put your script here
+      Tags:
+        - Key: key
+          Value: value
 Outputs:
